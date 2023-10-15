@@ -23,11 +23,17 @@ $boundary-position-bg-line: calc(50% - $site-half-width - 1px);
 }
 
 @mixin go-to-page-btn {
+  & {
+    transition: color .3s;
+  }
   & svg circle {
     transition: fill .3s;
   }
   & svg path {
     transition: stroke .3s;
+  }
+  &:hover {
+    color: $accent-color;
   }
   &:hover svg circle {
     fill: $font-color-heading;
@@ -80,6 +86,15 @@ body {
 .center {
   padding-left: calc(50% - $site-half-width);
   padding-right: calc(50% - $site-half-width);
+}
+
+.container {
+  max-width: $site-width;
+  margin: 0 auto;
+}
+
+.mt30 {
+  margin: 30px 0 0;
 }
 
 .header {
@@ -331,6 +346,10 @@ body {
     line-height: 62px;
     letter-spacing: 1px;
     margin: 0 0 12px 0;
+
+    &_align-left {
+      text-align: left;
+    }
   }
 
   &__text {
@@ -344,23 +363,22 @@ body {
 }
 
 .blog-articles-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  grid-template: auto / repeat(3, 1fr);
+  grid-auto-flow: row dense;
+  gap: 30px 27px;
 }
 
 .blog-article {
-  &:nth-child(even) {
+
+  &:hover {
     background-color: $experience-block-bgc;
-
-    & .blog-article__btn svg circle {
-      fill: #FFF;
-
-      &:hover {
-        fill: $font-color-heading;
-      }
-    }
   }
+
+  &:hover svg circle {
+    fill: #FFF;
+  }
+
 
   display: flex;
   flex-direction: column;
@@ -437,6 +455,10 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 101px;
+
+  &-blog-page {
+    margin: 200px 0 134px;
+  }
 }
 
 .footer-logo {
@@ -534,5 +556,148 @@ body {
 
   &__phone {
     @extend .footer-contacts__email;
+  }
+}
+
+// blog
+.blog-banner {
+  background: center / cover no-repeat url("../img/blog-banner.jpg");
+
+  &__wrapper {
+    position: relative;
+    min-height: 356px;
+  }
+
+  &__header {
+    position: absolute;
+    left: 350px;
+    bottom: 0;
+    padding: 41px 78px;
+    background-color: #fff;
+    border-radius: 37px 37px 0 0;
+  }
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 50px;
+    margin: 0;
+  }
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.latest-post {
+  margin: 200px 0 150px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 50px;
+    line-height: 62px;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  &__article {
+    border-radius: 62px;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0 10px 30px 0 rgba(255, 255, 255, 0.25);
+    padding: 22px;
+    display: flex;
+    gap: 65px;
+  }
+
+  &__img {
+    border-radius: 50px;
+    background: #C4C4C4;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 51px 34px 51px 0;
+  }
+
+  &__title {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 25px;
+    line-height: 31px;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 22px 0 41px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__date {
+    @include font($font-family-text, $font-color-text);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+  }
+
+  &__btn {
+    @include go-to-page-btn;
+  }
+}
+
+.page-pagination {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 51px 0 0;
+
+  &__item {
+    position: relative;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    @include go-to-page-btn;
+
+    & svg {
+      width: inherit;
+      height: inherit;
+    }
+
+    &_active svg circle {
+      fill: $experience-block-bgc;
+      stroke: none;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 18px;
+    left: 22px;
   }
 }
