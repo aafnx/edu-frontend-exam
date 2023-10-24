@@ -8,6 +8,9 @@ import PageFooter from '@/blocks/PageFooter.vue';
 
 export default {
   name: 'IndexPage',
+  props: {
+    changePage: Function,
+  },
   components: {
     PageHeader,
     MainPageBanner,
@@ -20,19 +23,19 @@ export default {
 </script>
 
 <template>
-  <div id="app">
+  <div>
     <div class="wrapper">
       <hr class="bg-line">
       <hr class="bg-line">
       <hr class="bg-line">
       <hr class="bg-line">
-      <PageHeader />
+      <PageHeader :changePage="changePage"/>
       <MainPageBanner />
       <ProjectCardList />
       <ExperienceComponent />
       <MainPageBlog />
     </div>
-    <PageFooter />
+    <PageFooter :changePage="changePage"/>
   </div>
 </template>
 

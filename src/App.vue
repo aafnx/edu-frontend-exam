@@ -1,14 +1,30 @@
 <template>
-  <IndexPage />
+  <div id="app">
+    <IndexPage v-if="currentPage === 0" :changePage="changePage" />
+    <BlogPage v-else-if="currentPage === 1" :changePage="changePage" />
+  </div>
 </template>
 
 <script>
 import IndexPage from '@/pages/IndexPage.vue';
+import BlogPage from '@/pages/BlogPage.vue';
 
 export default {
   name: 'App',
   components: {
+    BlogPage,
     IndexPage,
+  },
+  data: () => ({
+    currentPage: 0,
+  }),
+  methods: {
+    changePage(n) {
+      if (this.currentPage === n) {
+        return;
+      }
+      this.currentPage = n;
+    },
   },
 };
 </script>
