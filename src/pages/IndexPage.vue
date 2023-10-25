@@ -10,6 +10,10 @@ export default {
   name: 'IndexPage',
   props: {
     changePage: Function,
+    articles: {
+      type: Array,
+      required: true,
+    },
   },
   components: {
     PageHeader,
@@ -33,7 +37,7 @@ export default {
       <MainPageBanner />
       <ProjectCardList />
       <ExperienceComponent />
-      <MainPageBlog />
+      <MainPageBlog :articles="articles" />
     </div>
     <PageFooter :changePage="changePage"/>
   </div>

@@ -1,22 +1,87 @@
 <template>
   <div id="app">
-    <IndexPage v-if="currentPage === 0" :changePage="changePage" />
-    <BlogPage v-else-if="currentPage === 1" :changePage="changePage" />
+    <IndexPage v-if="currentPage === 0" :changePage="changePage" :articles="articles" />
+    <BlogPage v-else-if="currentPage === 1" :changePage="changePage" :articles="articles" />
+    <BlogDetailsPage v-else-if="currentPage === 2" :changePage="changePage"/>
   </div>
 </template>
 
 <script>
 import IndexPage from '@/pages/IndexPage.vue';
 import BlogPage from '@/pages/BlogPage.vue';
+import BlogDetailsPage from '@/pages/BlogDetailsPage.vue';
+import articleImg1 from '@/assets/img/blog-photo-1.jpg';
+import articleImg2 from '@/assets/img/blog-photo-2.jpg';
+import articleImg3 from '@/assets/img/blog-photo-3.jpg';
+import articleImg4 from '@/assets/img/blog-photo-4.jpg';
+import articleImg5 from '@/assets/img/blog-photo-5.jpg';
+import articleImg6 from '@/assets/img/blog-photo-6.jpg';
 
 export default {
   name: 'App',
   components: {
+    BlogDetailsPage,
     BlogPage,
     IndexPage,
   },
   data: () => ({
-    currentPage: 0,
+    currentPage: 2,
+    articles: [
+      {
+        title: 'Let’s Get Solution For Building Construction Work',
+        tag: 'Kitchan Design',
+        img: {
+          src: articleImg1,
+          alt: 'Kitchan design',
+        },
+        date: '26 December,2022',
+      },
+      {
+        title: 'Low Cost Latest Invented Interior Designing Ideas.',
+        tag: 'Living Design',
+        img: {
+          src: articleImg2,
+          alt: 'Living Design',
+        },
+        date: '22 December,2022',
+      },
+      {
+        title: 'Best For Any Office & Business Interior Solution',
+        tag: 'Interior Design',
+        img: {
+          src: articleImg3,
+          alt: 'Interior Design',
+        },
+        date: '25 December,2022',
+      },
+      {
+        title: 'Let’s Get Solution For Building Construction Work',
+        tag: 'Kitchan Design',
+        img: {
+          src: articleImg4,
+          alt: 'Kitchan design',
+        },
+        date: '26 December,2022',
+      },
+      {
+        title: 'Low Cost Latest Invented Interior Designing Ideas.',
+        tag: 'Living Design',
+        img: {
+          src: articleImg5,
+          alt: 'Living Design',
+        },
+        date: '22 December,2022',
+      },
+      {
+        title: 'Best For Any Office & Business Interior Solution',
+        tag: 'Interior Design',
+        img: {
+          src: articleImg6,
+          alt: 'Interior Design',
+        },
+        date: '25 December,2022',
+      },
+    ],
   }),
   methods: {
     changePage(n) {
@@ -84,11 +149,31 @@ body {
   margin: 0 auto;
 }
 
+.mt30 {
+  margin: 30px 0 0;
+}
+
+.mt21 {
+  margin: 21px 0 0;
+}
+
+.mt46 {
+  margin: 46px 0 0;
+}
+
+.mtb46 {
+  margin: 46px 0;
+}
+
+.flexbox-jcsb {
+  display: flex;
+  justify-content: space-between;
+}
+
   // for linter error without content in anchor
 .hide {
   display: none;
   visibility: hidden;
   position: absolute;
 }
-
 </style>
