@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <IndexPage v-if="currentPage === 0" :changePage="changePage" :articles="articles" />
-    <BlogPage v-else-if="currentPage === 1" :changePage="changePage" :articles="articles" />
-    <BlogDetailsPage v-else-if="currentPage === 2" :changePage="changePage"/>
+    <IndexPage v-if="currentPage === 0" :articles="articles" />
+    <BlogPage v-else-if="currentPage === 1" :articles="articles" />
+    <BlogDetailsPage v-else-if="currentPage === 2" />
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     IndexPage,
   },
   data: () => ({
-    currentPage: 2,
+    currentPage: 0,
     articles: [
       {
         title: 'Let’s Get Solution For Building Construction Work',
@@ -83,14 +83,6 @@ export default {
       },
     ],
   }),
-  methods: {
-    changePage(n) {
-      if (this.currentPage === n) {
-        return;
-      }
-      this.currentPage = n;
-    },
-  },
 };
 </script>
 

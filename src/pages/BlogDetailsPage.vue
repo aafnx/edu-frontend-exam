@@ -10,9 +10,6 @@ export default {
     PageFooter,
     PageHeader,
   },
-  props: {
-    changePage: Function,
-  },
 };
 </script>
 
@@ -23,11 +20,11 @@ export default {
     <hr class="bg-line">
     <hr class="bg-line">
     <hr class="bg-line">
-    <PageHeader :changePage="changePage"/>
+    <PageHeader />
     <header class="blog-details-banner">
     </header>
     <main class="center" id="app">
-      <BlogDetailsFeed :changePage="changePage"/>
+      <BlogDetailsFeed />
     </main>
   </div>
   <PageFooter />
