@@ -1,0 +1,30 @@
+@mixin font($font-family, $font-color) {
+  font: {
+    family: $font-family;
+    weight: 400;
+    style: normal;
+  }
+  color: $font-color;
+  margin: 0;
+}
+
+@mixin go-to-page-btn {
+  & {
+    transition: color .3s;
+  }
+  & svg circle {
+    transition: fill .3s;
+  }
+  & svg path {
+    transition: stroke .3s;
+  }
+  &:hover {
+    color: $accent-color;
+  }
+  &:hover svg circle {
+    fill: $font-color-heading;
+  }
+  &:hover svg path {
+    stroke: $accent-color;
+  }
+}
