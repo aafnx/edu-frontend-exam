@@ -1,11 +1,4 @@
-<template>
-  <div id="app">
-    <IndexPage v-if="currentPage === 0" :articles="articles" />
-    <BlogPage v-else-if="currentPage === 1" :articles="articles" />
-    <BlogDetailsPage v-else-if="currentPage === 2" />
-  </div>
-</template>
-
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import IndexPage from '@/pages/IndexPage.vue';
 import BlogPage from '@/pages/BlogPage.vue';
@@ -85,6 +78,14 @@ export default {
   }),
 };
 </script>
+
+<template>
+  <div id="app">
+    <IndexPage v-if="currentPage === 0" :articles="articles" />
+    <BlogPage v-else-if="currentPage === 1" :articles="articles" />
+    <BlogDetailsPage v-else-if="currentPage === 2" />
+  </div>
+</template>
 
 <style lang="scss">
 @import "@/assets/styles/normalize.css";
