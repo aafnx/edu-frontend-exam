@@ -3,8 +3,8 @@
     <ProjectHeader />
     <section class="grid-box">
       <ProjectCard
-        v-for="(data, index) in projectCardsData" :key="index"
-        :cardData="{data, index}"
+        v-for="card in projectCardsData" :key="card.id"
+        :cardData="card"
       />
     </section>
   </div>
@@ -28,6 +28,7 @@ export default {
   data: () => ({
     projectCardsData: [
       {
+        id: 1,
         img: {
           src: img1,
         },
@@ -35,6 +36,7 @@ export default {
         type: 'Decor / Artchitecture',
       },
       {
+        id: 2,
         img: {
           src: img2,
         },
@@ -42,6 +44,7 @@ export default {
         type: 'Decor / Artchitecture',
       },
       {
+        id: 3,
         img: {
           src: img3,
         },
@@ -49,6 +52,7 @@ export default {
         type: 'Decor / Artchitecture',
       },
       {
+        id: 4,
         img: {
           src: img4,
         },
@@ -72,8 +76,8 @@ export default {
 .grid-box {
   display: grid;
   justify-content: center;
-  grid-template: auto / repeat(2, minmax(auto, 548px));
-  column-gap: 104px;
+  grid-template: auto / repeat(2, minmax(auto, 552px));
+  column-gap: 101px;
   row-gap: 56px;
 }
 </style>

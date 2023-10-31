@@ -1,15 +1,17 @@
 <!-- eslint-disable vuejs-accessibility/anchor-has-content -->
 <template>
-  <article class="project-card">
-    <img :src="cardData.data.img.src" alt="project"
-         class="project-card__img"
-         :class="classForCard"
-    >
+  <article class="project-card" :class="classCardProjectPage">
+    <div class="project-card__img-box">
+      <img :src="cardData.img.src" alt="project"
+          class="project-card__img"
+          :class="classCardIndexPage"
+      >
+    </div>
     <div class="project-card__wrapper">
       <header class="project-card__header">
-        <h3 class="project-card__heading">{{ cardData.data.title }}</h3>
+        <h3 class="project-card__heading">{{ cardData.title }}</h3>
         <p class="project-card__type">
-          {{ cardData.data.type }}
+          {{ cardData.type }}
         </p>
       </header>
       <a href="#" class="project-card__btn">
@@ -33,22 +35,52 @@ export default {
       type: Object,
       required: true,
     },
+    page: {
+      type: String,
+      default: 'Index',
+    },
   },
   computed: {
-    classForCard() {
-      if (this.cardData.index === 0) {
-        return 'project-card__img_border-top-right';
+    classCardIndexPage() {
+      if (this.page !== 'Index') {
+        return '';
       }
-      if (this.cardData.index === 1) {
-        return 'project-card__img_border-top-left';
+      switch (this.cardData.id) {
+        case 1: {
+          return 'project-card__img_border-top-right';
+        }
+        case 2: {
+          return 'project-card__img_border-top-left';
+        }
+        case 3: {
+          return 'project-card__img_border-bottom-right';
+        }
+        case 4: {
+          return 'project-card__img_border-bottom-left';
+        }
+        default: {
+          return '';
+        }
       }
-      if (this.cardData.index === 2) {
-        return 'project-card__img_border-bottom-right';
+    },
+    classCardProjectPage() {
+      if (this.page !== 'Project') {
+        return '';
       }
-      if (this.cardData.index === 3) {
-        return 'project-card__img_border-bottom-left';
+      switch (this.cardData.id) {
+        case 1: {
+          return 'project-card_project-page';
+        }
+        // case 3: {
+        //   return 'project-card_project-page';
+        // }
+        case 7: {
+          return 'project-card_project-page';
+        }
+        default: {
+          return '';
+        }
       }
-      return '';
     },
   },
 };
@@ -62,9 +94,26 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  box-sizing: border-box;
+
+  &_project-page {
+    // grid-row: span 1;
+
+    // & .project-card__img-box {
+    //   height: 947px;
+    // }
+  }
+
+  &__img-box {
+      height: 552px;
+  }
 
   &__img {
-    height: 525px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: block;
 
     &_border-top-right {
       border-radius: 0 $project-card-border-radius 0 0;
