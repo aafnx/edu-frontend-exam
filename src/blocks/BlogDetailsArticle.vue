@@ -1,15 +1,3 @@
-<script>
-export default {
-  name: 'BlogDetailsArticle',
-  props: {
-    articleData: {
-      type: Object,
-      required: true,
-    },
-  },
-};
-</script>
-
 <template>
   <article class="article">
     <h3 class="article__title">
@@ -27,6 +15,18 @@ export default {
     </p>
   </article>
 </template>
+
+<script>
+export default {
+  name: 'BlogDetailsArticle',
+  props: {
+    articleData: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';

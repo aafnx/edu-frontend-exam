@@ -1,4 +1,31 @@
+<!-- eslint-disable vuejs-accessibility/anchor-has-content -->
+<template>
+  <article class="project-card">
+    <img :src="cardData.data.img.src" alt="project"
+         class="project-card__img"
+         :class="classForCard"
+    >
+    <div class="project-card__wrapper">
+      <header class="project-card__header">
+        <h3 class="project-card__heading">{{ cardData.data.title }}</h3>
+        <p class="project-card__type">
+          {{ cardData.data.type }}
+        </p>
+      </header>
+      <a href="#" class="project-card__btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+          <circle cx="35" cy="35" r="35" fill="#F4F0EC"/>
+          <path d="M32 44L40 35L32 26" stroke="#292F36" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </article>
+</template>
+
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+
 export default {
   name: 'ProjectCard',
   props: {
@@ -26,31 +53,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <article class="project-card">
-    <img :src="cardData.data.img.src" alt="project"
-         class="project-card__img"
-         :class="classForCard"
-    >
-    <div class="project-card__wrapper">
-      <header class="project-card__header">
-        <h3 class="project-card__heading">{{ cardData.data.title }}</h3>
-        <p class="project-card__type">
-          {{ cardData.data.type }}
-        </p>
-      </header>
-      <a href="#" class="project-card__btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
-          <circle cx="35" cy="35" r="35" fill="#F4F0EC"/>
-          <path d="M32 44L40 35L32 26" stroke="#292F36" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round"/>
-        </svg>
-        <span class="hide">.</span>
-      </a>
-    </div>
-  </article>
-</template>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';

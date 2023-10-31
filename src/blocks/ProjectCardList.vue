@@ -1,3 +1,16 @@
+<template>
+  <div class="our-project center">
+    <ProjectHeader />
+    <section class="grid-box">
+      <ProjectCard
+        v-for="(data, index) in projectCardsData" :key="index"
+        :cardData="{data, index}"
+      />
+    </section>
+  </div>
+</template>
+
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import ProjectHeader from '@/blocks/ProjectHeader.vue';
 import ProjectCard from '@/blocks/ProjectCard.vue';
@@ -46,18 +59,6 @@ export default {
   }),
 };
 </script>
-
-<template>
-  <div class="our-project center">
-    <ProjectHeader />
-    <section class="grid-box">
-      <ProjectCard
-        v-for="(data, index) in projectCardsData" :key="index"
-        :cardData="{data, index}"
-      />
-    </section>
-  </div>
-</template>
 
 <style scoped lang="scss">
 
