@@ -49,6 +49,7 @@ import bathroomImg2 from '@/assets/img/bathroom-2.jpg';
 import bathroomImg3 from '@/assets/img/bathroom-3.jpg';
 import bathroomImg4 from '@/assets/img/bathroom-4.jpg';
 import bathroomImg5 from '@/assets/img/bathroom-5.jpg';
+import bathroomImg6 from '@/assets/img/bathroom-6.jpg';
 
 import kitchanImg1 from '@/assets/img/kitchan-1.jpg';
 import kitchanImg2 from '@/assets/img/kitchan-2.jpg';
@@ -114,6 +115,12 @@ export default {
               title: 'Green bathroom',
               type: 'Decor / Bathrom',
               img: { src: bathroomImg5 },
+            },
+            {
+              id: 6,
+              title: 'Modern bathroom',
+              type: 'Decor / Bathrom',
+              img: { src: bathroomImg6 },
             },
           ],
         },
@@ -273,7 +280,7 @@ export default {
   margin: 61px 0 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  // grid-template-rows: repeat(auto-fit, 616px);
+  grid-template-rows: repeat(auto-fit, 308px);
   column-gap: 30px;
   row-gap: 35px;
   grid-auto-flow: row dense;

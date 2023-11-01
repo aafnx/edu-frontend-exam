@@ -29,7 +29,7 @@ export default {
     ProjectPage,
   },
   data: () => ({
-    currentPage: 3,
+    currentPage: 0,
     articles: [
       {
         title: 'Let’s Get Solution For Building Construction Work',

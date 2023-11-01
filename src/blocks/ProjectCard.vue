@@ -71,10 +71,10 @@ export default {
         case 1: {
           return 'project-card_project-page';
         }
-        // case 3: {
-        //   return 'project-card_project-page';
-        // }
-        case 7: {
+        case 3: {
+          return 'project-card_project-page';
+        }
+        case 5: {
           return 'project-card_project-page';
         }
         default: {
@@ -95,13 +95,14 @@ export default {
   flex-direction: column;
   gap: 24px;
   box-sizing: border-box;
+  grid-row: span 2;
 
   &_project-page {
-    // grid-row: span 1;
+    grid-row: span 3;
 
-    // & .project-card__img-box {
-    //   height: 947px;
-    // }
+    & .project-card__img-box {
+      height: 925px;
+    }
   }
 
   &__img-box {
