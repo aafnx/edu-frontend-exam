@@ -2,7 +2,7 @@
     <nav class="categories">
       <button class="button" :class="{'button_active': category.isActive}"
         v-for="(category, index) in categories" :key="index"
-        @click="choseCategory(category)">
+        @click="changeCategory(category)">
           {{ category.category }}
       </button>
     </nav>
@@ -18,8 +18,8 @@ export default {
     },
   },
   methods: {
-    choseCategory(category) {
-      this.$emit('choseCategory', category);
+    changeCategory(category) {
+      this.$emit('changeCategory', category);
     },
   },
 };

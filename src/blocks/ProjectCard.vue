@@ -67,20 +67,7 @@ export default {
       if (this.page !== 'Project') {
         return '';
       }
-      switch (this.cardData.id) {
-        case 1: {
-          return 'project-card_project-page';
-        }
-        case 3: {
-          return 'project-card_project-page';
-        }
-        case 5: {
-          return 'project-card_project-page';
-        }
-        default: {
-          return '';
-        }
-      }
+      return 'project-card_project-page';
     },
   },
 };
@@ -95,13 +82,15 @@ export default {
   flex-direction: column;
   gap: 24px;
   box-sizing: border-box;
-  grid-row: span 2;
 
   &_project-page {
-    grid-row: span 3;
+    grid-row: span 2;
 
-    & .project-card__img-box {
-      height: 925px;
+    &:nth-child(1), &:nth-child(3), &:nth-child(5) {
+      grid-row: span 3;
+      & .project-card__img-box {
+        height: 925px;
+      }
     }
   }
 

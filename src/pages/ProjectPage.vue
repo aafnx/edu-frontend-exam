@@ -10,7 +10,7 @@
       <main class="center">
         <ProjectCategories
           :categories="cards"
-          @choseCategory="choseCategory"
+          @changeCategory="changeCategory"
           class="categories"/>
 
         <section class="cards">
@@ -254,7 +254,7 @@ export default {
     };
   },
   methods: {
-    choseCategory(data) {
+    changeCategory(data) {
       const chosenCategory = this.cards.find((card) => card.category === data.category);
       if (chosenCategory) {
         // eslint-disable-next-line no-param-reassign
