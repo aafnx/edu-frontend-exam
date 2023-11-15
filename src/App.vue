@@ -24,7 +24,7 @@ export default {
     ProjectPage,
   },
   data: () => ({
-    currentPage: 0,
+    currentPage: 3,
   }),
   computed: {
     ...mapGetters('articles', ['articles']),
