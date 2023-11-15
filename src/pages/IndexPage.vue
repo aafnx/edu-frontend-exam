@@ -9,12 +9,6 @@ import PageFooter from '@/blocks/PageFooter.vue';
 
 export default {
   name: 'IndexPage',
-  props: {
-    articles: {
-      type: Array,
-      required: true,
-    },
-  },
   components: {
     PageHeader,
     MainPageBanner,
@@ -37,7 +31,7 @@ export default {
       <MainPageBanner />
       <ProjectCardList />
       <ExperienceComponent />
-      <MainPageBlog :articles="articles" />
+      <MainPageBlog />
     </div>
     <PageFooter />
   </div>

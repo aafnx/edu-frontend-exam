@@ -1,3 +1,8 @@
+import imgCard1 from '@/assets/img/card-1.jpg';
+import imgCard2 from '@/assets/img/card-2.jpg';
+import imgCard3 from '@/assets/img/card-3.jpg';
+import imgCard4 from '@/assets/img/card-4.jpg';
+
 import img1 from '@/assets/img/project-card-1.jpg';
 import img2 from '@/assets/img/project-card-2.jpg';
 import img3 from '@/assets/img/project-card-3.jpg';
@@ -29,7 +34,41 @@ import livingAreaImg6 from '@/assets/img/living-area-6.jpg';
 export default {
   namespaced: true,
   state: {
-    data: [
+    projectsOnIndexPage: [
+      {
+        id: 1,
+        img: {
+          src: imgCard1,
+        },
+        title: 'Modern Kitchan',
+        type: 'Decor / Artchitecture',
+      },
+      {
+        id: 2,
+        img: {
+          src: imgCard2,
+        },
+        title: 'Modern Kitchan',
+        type: 'Decor / Artchitecture',
+      },
+      {
+        id: 3,
+        img: {
+          src: imgCard3,
+        },
+        title: 'Modern Kitchan',
+        type: 'Decor / Artchitecture',
+      },
+      {
+        id: 4,
+        img: {
+          src: imgCard4,
+        },
+        title: 'Modern Kitchan',
+        type: 'Decor / Artchitecture',
+      },
+    ],
+    projects: [
       {
         category: 'bathroom',
         isActive: false,
@@ -201,6 +240,17 @@ export default {
     ],
   },
   getters: {
-    cards: (state) => state.data,
+    cards: (state) => state.projects,
+    projectCardsData: (state) => state.projectsOnIndexPage,
+    filteredCardsByCategory: (state) => state.projects.find((card) => card.isActive).data,
+  },
+  mutations: {
+    CHANGE_PROJECT_CATEGORY(state, data) {
+      const chosenCategory = state.projects.find((card) => card.category === data.category);
+      if (chosenCategory) {
+        state.projects.forEach((card) => { card.isActive = false; });
+        chosenCategory.isActive = true;
+      }
+    },
   },
 };

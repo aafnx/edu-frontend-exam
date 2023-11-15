@@ -28,7 +28,7 @@
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 import BannerPage from '@/blocks/BannerPage.vue';
 import PageFooter from '@/blocks/PageFooter.vue';
 import PageHeader from '@/blocks/PageHeader.vue';
@@ -57,20 +57,13 @@ export default {
     };
   },
   methods: {
+    ...mapMutations('projectCards', ['CHANGE_PROJECT_CATEGORY']),
     changeCategory(data) {
-      const chosenCategory = this.cards.find((card) => card.category === data.category);
-      if (chosenCategory) {
-        // eslint-disable-next-line no-param-reassign
-        this.cards.forEach((card) => { card.isActive = false; });
-        chosenCategory.isActive = true;
-      }
+      this.CHANGE_PROJECT_CATEGORY(data);
     },
   },
   computed: {
-    ...mapGetters('projectCards', ['cards']),
-    filteredCardsByCategory() {
-      return this.cards.find((card) => card.isActive).data;
-    },
+    ...mapGetters('projectCards', ['cards', 'filteredCardsByCategory']),
   },
 };
 </script>

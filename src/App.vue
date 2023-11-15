@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <IndexPage v-if="currentPage === 0" :articles="articles" />
-    <BlogPage v-else-if="currentPage === 1" :articles="articles" />
+    <IndexPage v-if="currentPage === 0" />
+    <BlogPage v-else-if="currentPage === 1" />
     <BlogDetailsPage v-else-if="currentPage === 2" />
     <ProjectPage v-else-if="currentPage === 3" />
   </div>
@@ -24,7 +24,7 @@ export default {
     ProjectPage,
   },
   data: () => ({
-    currentPage: 3,
+    currentPage: 2,
   }),
   computed: {
     ...mapGetters('articles', ['articles']),

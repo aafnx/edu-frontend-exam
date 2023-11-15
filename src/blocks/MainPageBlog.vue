@@ -9,7 +9,7 @@
 
     <div class="blog-articles-wrapper">
       <BlogArticle
-        v-for="(article, index) in showThreeBlogArticles"
+        v-for="(article, index) in firstThreeProjectArticles"
         :key="index"
         :articleData="article"
       />
@@ -19,6 +19,7 @@
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+import { mapGetters } from 'vuex';
 import BlogArticle from '@/blocks/BlogArticle.vue';
 
 export default {
@@ -26,21 +27,8 @@ export default {
   components: {
     BlogArticle,
   },
-  props: {
-    articles: {
-      type: Array,
-      required: true,
-    },
-  },
-  methods: {
-    limitDisplayArticles(index, limit) {
-      return index < limit;
-    },
-  },
   computed: {
-    showThreeBlogArticles() {
-      return [...this.articles].filter((_, index) => index < 3);
-    },
+    ...mapGetters('articles', ['firstThreeProjectArticles']),
   },
 };
 </script>

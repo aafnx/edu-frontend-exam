@@ -12,7 +12,7 @@
 
       <LatestPost />
 
-      <BlogPageArticles :articles="articles" />
+      <BlogPageArticles />
     </div>
     <PageFooter />
   </div>
@@ -34,12 +34,6 @@ export default {
     PageFooter,
     BannerPage,
     LatestPost,
-  },
-  props: {
-    articles: {
-      type: Array,
-      required: true,
-    },
   },
   data() {
     return {
