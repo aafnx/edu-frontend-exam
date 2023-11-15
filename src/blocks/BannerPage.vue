@@ -1,7 +1,8 @@
 <template>
   <section class="blog-banner" :style="bannerBgImg">
     <div class="blog-banner__wrapper container">
-      <header class="blog-banner__header">
+      <header class="blog-banner__header"
+        :class="{'blog-banner__header_none': hideHeaderBanner}">
         <h1 class="blog-banner__heading">{{ bannerData.title}}</h1>
         <p class="blog-banner__text">{{  bannerData.subtitle }}</p>
       </header>
@@ -13,6 +14,7 @@
 <script>
 import blogBgImg from '@/assets/img/blog-banner.jpg';
 import projectBgImg from '@/assets/img/project-banner.jpg';
+import projectDetailBgImg from '@/assets/img/project-details-banner.jpg';
 
 export default {
   name: 'BannerPage',
@@ -28,8 +30,21 @@ export default {
         case 'project': {
           return { backgroundImage: `url(${projectBgImg})` };
         }
+        case 'project details': {
+          return { backgroundImage: `url(${projectDetailBgImg})` };
+        }
         default: {
           return { backgroundColor: '#F4F0EC' };
+        }
+      }
+    },
+    hideHeaderBanner() {
+      switch (this.bannerData.pageName.toLowerCase()) {
+        case 'project details': {
+          return true;
+        }
+        default: {
+          return false;
         }
       }
     },
@@ -56,6 +71,9 @@ export default {
     padding: 41px 78px;
     background-color: #fff;
     border-radius: 37px 37px 0 0;
+    &_none {
+      display: none;
+    }
   }
 
   &__heading {

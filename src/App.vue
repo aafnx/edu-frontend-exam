@@ -4,6 +4,7 @@
     <BlogPage v-else-if="currentPage === 1" />
     <BlogDetailsPage v-else-if="currentPage === 2" />
     <ProjectPage v-else-if="currentPage === 3" />
+    <ProjectDetailsPage v-else-if="currentPage === 4" />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import IndexPage from '@/pages/IndexPage.vue';
 import BlogPage from '@/pages/BlogPage.vue';
 import BlogDetailsPage from '@/pages/BlogDetailsPage.vue';
 import ProjectPage from '@/pages/ProjectPage.vue';
+import ProjectDetailsPage from '@/pages/ProjectDetailsPage.vue';
 
 export default {
   name: 'App',
@@ -22,9 +24,10 @@ export default {
     BlogPage,
     IndexPage,
     ProjectPage,
+    ProjectDetailsPage,
   },
   data: () => ({
-    currentPage: 2,
+    currentPage: 4,
   }),
   computed: {
     ...mapGetters('articles', ['articles']),

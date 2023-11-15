@@ -57,9 +57,9 @@ export default {
     };
   },
   methods: {
-    ...mapMutations('projectCards', ['CHANGE_PROJECT_CATEGORY']),
+    ...mapMutations('projectCards', ['CHANGE_PROJECT_ACTIVE_CATEGORY']),
     changeCategory(data) {
-      this.CHANGE_PROJECT_CATEGORY(data);
+      this.CHANGE_PROJECT_ACTIVE_CATEGORY(data);
     },
   },
   computed: {

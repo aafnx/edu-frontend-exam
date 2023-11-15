@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import imgCard1 from '@/assets/img/card-1.jpg';
 import imgCard2 from '@/assets/img/card-2.jpg';
 import imgCard3 from '@/assets/img/card-3.jpg';
@@ -245,9 +246,10 @@ export default {
     filteredCardsByCategory: (state) => state.projects.find((card) => card.isActive).data,
   },
   mutations: {
-    CHANGE_PROJECT_CATEGORY(state, data) {
+    CHANGE_PROJECT_ACTIVE_CATEGORY(state, data) {
       const chosenCategory = state.projects.find((card) => card.category === data.category);
       if (chosenCategory) {
+        // eslint-disable-next-line no-param-reassign
         state.projects.forEach((card) => { card.isActive = false; });
         chosenCategory.isActive = true;
       }

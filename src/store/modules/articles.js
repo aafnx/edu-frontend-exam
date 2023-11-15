@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import articleBlogImg1 from '@/assets/img/article-img-1.jpg';
 import articleBlogImg2 from '@/assets/img/article-img-2.jpg';
 import articleBlogImg3 from '@/assets/img/article-img-3.jpg';
@@ -36,11 +37,11 @@ export default {
         pagination: 'Interior / Home / Bedroom',
         paragraphs: [
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet doloremque esse expedita fuga modi nulla numquam\n'
-            + '    odio omnis quidem similique!',
+          + '    odio omnis quidem similique!',
           'Dignissimos dolorum expedita fugiat modi, nobis similique? Aliquam assumenda illo ipsam mollitia nesciunt pariatur\n'
-            + '    provident quasi quos ratione sint, suscipit?',
+          + '    provident quasi quos ratione sint, suscipit?',
           'Cum, dolorem doloremque eum incidunt inventore libero minus molestiae odit similique! At, atque consequuntur cum\n'
-            + '    doloribus expedita fugiat laboriosam quae.',
+          + '    doloribus expedita fugiat laboriosam quae.',
         ],
         tags: ['bedroom'],
       },
@@ -54,7 +55,7 @@ export default {
         pagination: 'Interior / Home / Building',
         paragraphs: [
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet doloremque esse expedita fuga modi nulla numquam\n'
-            + '    odio omnis quidem similique!',
+          + '    odio omnis quidem similique!',
         ],
         tags: ['building'],
       },
@@ -136,9 +137,7 @@ export default {
     firstThreeProjectArticles: (state) => state.projectArticles.filter((_, index) => index < 3),
   },
   mutations: {
-
   },
   actions: {
-
   },
 };
