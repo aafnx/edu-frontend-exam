@@ -55,6 +55,7 @@ export default {
         pagination: 'Interior / Home / Building',
         paragraphs: [
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet doloremque esse expedita fuga modi nulla numquam\n'
+          + '    odio omnis quidem similique!', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet doloremque esse expedita fuga modi nulla numquam\n'
           + '    odio omnis quidem similique!',
         ],
         tags: ['building'],
