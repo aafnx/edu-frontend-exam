@@ -106,6 +106,14 @@ body {
   margin: 46px 0;
 }
 
+.mb108 {
+    margin-bottom: 108px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
 .flexbox-jcsb {
   display: flex;
   justify-content: space-between;

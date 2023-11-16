@@ -7,6 +7,7 @@
       <hr class="bg-line">
       <PageHeader />
       <BannerPage :bannerData="bannerData" />
+      <ProjectDetailsSlider />
     </div>
     <PageFooter />
   </div>
@@ -17,10 +18,16 @@
 import BannerPage from '@/blocks/BannerPage.vue';
 import PageFooter from '@/blocks/PageFooter.vue';
 import PageHeader from '@/blocks/PageHeader.vue';
+import ProjectDetailsSlider from '@/blocks/ProjectDetailsSlider.vue';
 
 export default {
   name: 'ProjectDetailsPage',
-  components: { PageHeader, PageFooter, BannerPage },
+  components: {
+    PageHeader,
+    PageFooter,
+    BannerPage,
+    ProjectDetailsSlider,
+  },
   data() {
     return {
       bannerData: {
