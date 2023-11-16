@@ -13,24 +13,28 @@
     <div class="img-box">
         <img class="img" :src="item.img.src" :alt="item.img.alt">
         <button
-        class="zoom-btn"
-        @click="onPopUp">ZOOM</button>
+            class="zoom-btn"
+            @click="showPopUp">
+          ZOOM
+        </button>
     </div>
-    <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events -->
-    <div v-if="isPopUp" class="popup"
-        @click="offPopUp">
-        <img class="popup__img" :src="item.img.src" :alt="item.img.alt">
-    </div>
+    <PopUpImage
+      @hidePopUp="hidePopUp"
+      :isShown="isShownPopUp"
+      :img="item.img" />
 </section>
 
 </template>
 
 <script>
+import PopUpImage from './PopUpImage.vue';
+
 export default {
   name: 'ProjectDetailsSliderItem',
+  components: { PopUpImage },
   data() {
     return {
-      isPopUp: false,
+      isShownPopUp: false,
     };
   },
   props: {
@@ -40,11 +44,11 @@ export default {
     },
   },
   methods: {
-    onPopUp() {
-      this.isPopUp = true;
+    showPopUp() {
+      this.isShownPopUp = true;
     },
-    offPopUp() {
-      this.isPopUp = false;
+    hidePopUp() {
+      this.isShownPopUp = false;
     },
   },
 };
@@ -54,22 +58,6 @@ export default {
 @import '@/assets/styles/_variables.scss';
 @import '@/assets/styles/_mixins.scss';
 
-.popup {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    &__img {
-        width: 80%;
-        height: 80%;
-        object-fit: cover;
-    }
-}
 .section {
     margin: 200px 0 20px;
 }
@@ -105,6 +93,9 @@ export default {
     align-items: center;
     flex-direction: column;
     position: relative;
+    &:hover .zoom-btn {
+      opacity: 1;
+    }
 }
 
 .img {
@@ -115,6 +106,7 @@ export default {
 }
 
 .zoom-btn {
+    opacity: 0;
     position: absolute;
     cursor: pointer;
     outline: none;
@@ -124,5 +116,6 @@ export default {
     border-radius: 50%;
     background-color: #fff;
     filter: drop-shadow(0 10px 20px rgba(192, 192, 192, 0.25));
+    transition: opacity .3s;
 }
 </style>
