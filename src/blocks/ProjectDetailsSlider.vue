@@ -1,5 +1,5 @@
 <template>
-    <div class="center">
+    <div>
     <ProjectDetailsSliderItem :item="articles[choosenSlide]"/>
     <div class="slider-pagination mb108">
         <button
