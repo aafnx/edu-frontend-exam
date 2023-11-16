@@ -1,6 +1,6 @@
 <template>
     <div class="center">
-    <ProjectDetailsSliderItem :item="blogArticles[choosenSlide]"/>
+    <ProjectDetailsSliderItem :item="articles[choosenSlide]"/>
     <div class="slider-pagination mb108">
         <button
             class="slider-pagination__item"
@@ -26,8 +26,8 @@ export default {
   },
   methods: {
     changeSlide(index) {
-      if (index >= this.blogArticles.length) {
-        this.choosenSlide = this.blogArticles.length - 1;
+      if (index >= this.articles.length) {
+        this.choosenSlide = this.articles.length - 1;
       }
       if (index < 0) {
         this.choosenSlide = 0;
@@ -41,7 +41,10 @@ export default {
   computed: {
     ...mapGetters('articles', ['blogArticles']),
     buttonCount() {
-      return this.blogArticles.length;
+      return this.articles.length;
+    },
+    articles() {
+      return this.blogArticles;
     },
   },
 };
