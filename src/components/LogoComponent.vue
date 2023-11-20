@@ -5,10 +5,10 @@ export default {
 </script>
 
 <template>
-  <a href="index.html" class="logo">
+  <router-link to='/home' class="logo">
     <img src="../assets/img/logo.svg" alt="logo" class="logo__img">
     <span class="logo__text">Interno</span>
-  </a>
+  </router-link>
 </template>
 
 <style scoped lang="scss">
@@ -20,9 +20,6 @@ export default {
   display: flex;
   gap: 10px;
   align-items: center;
-
-  &__img {
-  }
 
   &__text {
     @include font($font-family-heading, $font-color-heading);

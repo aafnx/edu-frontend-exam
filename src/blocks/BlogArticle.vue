@@ -9,7 +9,7 @@
     </h3>
     <footer class="blog-article__footer">
       <time class="blog-article__date">{{ articleData.date }}</time>
-      <a href="#" class="blog-article__btn">
+      <router-link to="/blog-details" class="blog-article__btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
           <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
           <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
@@ -17,7 +17,7 @@
                 stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="hide">button</span>
-      </a>
+      </router-link>
     </footer>
   </article>
 </template>
