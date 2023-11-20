@@ -6,12 +6,17 @@ import BlogPage from '@/pages/BlogPage.vue';
 import ProjectPage from '@/pages/ProjectPage.vue';
 import BlogDetailsPage from '@/pages/BlogDetailsPage.vue';
 import ProjectDetailsPage from '@/pages/ProjectDetailsPage.vue';
+import NotFound from '@/pages/NotFound.vue';
 
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      redirect: { name: 'home' },
+    },
     {
       path: '/home',
       name: 'home',
@@ -38,8 +43,13 @@ export default new Router({
       component: ProjectDetailsPage,
     },
     {
-      path: '*',
-      template: '<h1>Not Found</h1>',
+      path: '/404',
+      name: 'NotFound',
+      component: NotFound,
+    },
+    {
+      path: '/*',
+      redirect: { name: 'NotFound' },
     },
   ],
 });
