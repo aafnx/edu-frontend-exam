@@ -13,9 +13,9 @@ export default {
   <header class="header center">
     <LogoComponent />
     <nav class="menu">
-      <a href="index.html" class="menu__link">Home</a>
-      <a href="#" class="menu__link">Project</a>
-      <a href="blog.html" class="menu__link">Blog</a>
+      <router-link to="/home" class="menu__link">Home</router-link>
+      <router-link to="/project" class="menu__link">Project</router-link>
+      <router-link to="/blog" class="menu__link">Blog</router-link>
     </nav>
   </header>
 </template>

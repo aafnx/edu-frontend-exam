@@ -15,7 +15,7 @@
             </p>
             <div class="latest-post__wrapper">
               <time class="latest-post__date">26 December,2022</time>
-              <a href="#" class="latest-post__btn">
+              <router-link to="/blog-details" class="latest-post__btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53"
                 viewBox="0 0 52 53" fill="none">
                   <circle cx="26" cy="26.5" r="26" fill="#F4F0EC"/>
@@ -23,7 +23,7 @@
                   stroke="#292F36" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-              </a>
+              </router-link>
             </div>
           </div>
         </article>

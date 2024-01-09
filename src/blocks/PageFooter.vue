@@ -12,9 +12,9 @@
     </div>
     <nav class="footer-nav">
       <h4 class="footer-nav__heading">Pages</h4>
-      <a href="index.html" class="footer-nav__link">Home</a>
-      <a href="#" class="footer-nav__link">Project</a>
-      <a href="blog.html" class="footer-nav__link">Blog</a>
+      <router-link to="/home" class="footer-nav__link">Home</router-link>
+      <router-link to="/project" class="footer-nav__link">Project</router-link>
+      <router-link to="/blog" class="footer-nav__link">Blog</router-link>
     </nav>
     <div class="footer-services"></div>
     <address class="footer-contacts">
