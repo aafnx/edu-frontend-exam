@@ -1,3 +1,4 @@
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import PageHeader from '@/blocks/PageHeader.vue';
 import MainPageBanner from '@/blocks/MainPageBanner.vue';

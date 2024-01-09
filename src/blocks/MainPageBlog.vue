@@ -1,3 +1,23 @@
+<template>
+  <section class="blog center" id="app">
+    <header class="blog__header">
+      <h3 class="blog__heading">Articles & News</h3>
+      <p class="blog__text">It is a long established fact that a reader will be
+        distracted by the of readable content of a page when
+        lookings at its layouts the points of using.</p>
+    </header>
+
+    <div class="blog-articles-wrapper">
+      <BlogArticle
+        v-for="(article, index) in showThreeBlogArticles"
+        :key="index"
+        :articleData="article"
+      />
+    </div>
+  </section>
+</template>
+
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import BlogArticle from '@/blocks/BlogArticle.vue';
 
@@ -24,25 +44,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <section class="blog center" id="app">
-    <header class="blog__header">
-      <h3 class="blog__heading">Articles & News</h3>
-      <p class="blog__text">It is a long established fact that a reader will be
-        distracted by the of readable content of a page when
-        lookings at its layouts the points of using.</p>
-    </header>
-
-    <div class="blog-articles-wrapper">
-      <BlogArticle
-        v-for="(article, index) in showThreeBlogArticles"
-        :key="index"
-        :articleData="article"
-      />
-    </div>
-  </section>
-</template>
 
 <style scoped lang="scss">
 @import '@/assets/styles/_variables.scss';

@@ -1,3 +1,63 @@
+<template>
+  <section class="blog-details">
+    <section class="blog-details__wrapper">
+      <BlogDetailsArticle
+        v-for="(article, index) in filteredArticles" :key="index"
+        :articleData="article"
+      />
+      <article class="quotes">
+        <div class="quotes__symbol">&#8221;</div>
+        <p class="quotes__text">The details are not the details. They make the design.</p>
+      </article>
+      <article class="article">
+        <h3 class="article__title">
+          Design sprints are great
+        </h3>
+        <p class="article__text mt21">
+          Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.
+          Contrary to popular belief.There are many variations of passages of Lorem Ipsum available,
+          but the majority have suffered.
+        </p>
+        <ol class="article__list">
+          <li class="article__list-item">
+            Contrary to popular belief.There are many variations of passages of Lorem Ipsum
+            available, but the majority have suffered.
+          </li>
+          <li class="article__list-item">
+            Contrary to popular belief.There are many variations of passages of Lorem Ipsum
+            available, but the majority have suffered.
+          </li>
+          <li class="article__list-item">
+            Contrary to popular belief.There are many variations of passages of
+            Lorem Ipsum available, but the majority have suffered.
+          </li>
+        </ol>
+        <img src="@/assets/img/sub-article.jpg" alt="subarticle img"
+             class="article__img article__img_subarticle mt21">
+        <p class="article__text mt46">
+          Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.
+          Contrary to popular belief.There are many variations of passages of Lorem Ipsum available,
+          but the majority have suffered.
+        </p>
+      </article>
+    </section>
+    <aside class="tags">
+      <h3 class="tags__heading">
+        Tags
+      </h3>
+      <div class="tags__wrapper">
+        <button class="tag"
+                v-for="(btn, index) in buttonTags" :key="index"
+                @click="toggleTag(btn)"
+                :class="{ tag_active: btn.isActive  }">
+          {{ btn.name }}
+        </button>
+      </div>
+    </aside>
+  </section>
+</template>
+
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import BlogDetailsArticle from '@/blocks/BlogDetailsArticle.vue';
 import articleImg1 from '@/assets/img/article-img-1.jpg';
@@ -158,65 +218,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <section class="blog-details">
-    <section class="blog-details__wrapper">
-      <BlogDetailsArticle
-        v-for="(article, index) in filteredArticles" :key="index"
-        :articleData="article"
-      />
-      <article class="quotes">
-        <div class="quotes__symbol">&#8221;</div>
-        <p class="quotes__text">The details are not the details. They make the design.</p>
-      </article>
-      <article class="article">
-        <h3 class="article__title">
-          Design sprints are great
-        </h3>
-        <p class="article__text mt21">
-          Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.
-          Contrary to popular belief.There are many variations of passages of Lorem Ipsum available,
-          but the majority have suffered.
-        </p>
-        <ol class="article__list">
-          <li class="article__list-item">
-            Contrary to popular belief.There are many variations of passages of Lorem Ipsum
-            available, but the majority have suffered.
-          </li>
-          <li class="article__list-item">
-            Contrary to popular belief.There are many variations of passages of Lorem Ipsum
-            available, but the majority have suffered.
-          </li>
-          <li class="article__list-item">
-            Contrary to popular belief.There are many variations of passages of
-            Lorem Ipsum available, but the majority have suffered.
-          </li>
-        </ol>
-        <img src="@/assets/img/sub-article.jpg" alt="subarticle img"
-             class="article__img article__img_subarticle mt21">
-        <p class="article__text mt46">
-          Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.
-          Contrary to popular belief.There are many variations of passages of Lorem Ipsum available,
-          but the majority have suffered.
-        </p>
-      </article>
-    </section>
-    <aside class="tags">
-      <h3 class="tags__heading">
-        Tags
-      </h3>
-      <div class="tags__wrapper">
-        <button class="tag"
-                v-for="(btn, index) in buttonTags" :key="index"
-                @click="toggleTag(btn)"
-                :class="{ tag_active: btn.isActive  }">
-          {{ btn.name }}
-        </button>
-      </div>
-    </aside>
-  </section>
-</template>
 
 <style scoped lang="scss">
 @import '@/assets/styles/_variables.scss';

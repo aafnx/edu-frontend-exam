@@ -1,3 +1,27 @@
+<template>
+  <article class="blog-article">
+    <div class="blog-article__top">
+      <img :src="articleData.img.src" :alt="articleData.img.alt" class="blog-article__img">
+      <p class="blog-article__tag"> {{ articleData.tag }}</p>
+    </div>
+    <h3 class="blog-article__title">
+      {{ articleData.title }}
+    </h3>
+    <footer class="blog-article__footer">
+      <time class="blog-article__date">{{ articleData.date }}</time>
+      <a href="#" class="blog-article__btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
+          <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
+          <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
+                stroke="#292F36" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="hide">button</span>
+      </a>
+    </footer>
+  </article>
+</template>
+
 <script>
 export default {
   name: 'BlogArticle',
@@ -9,30 +33,6 @@ export default {
   },
 };
 </script>
-
-<template>
-    <article class="blog-article">
-      <div class="blog-article__top">
-        <img :src="articleData.img.src" :alt="articleData.img.alt" class="blog-article__img">
-        <p class="blog-article__tag"> {{ articleData.tag }}</p>
-      </div>
-      <h3 class="blog-article__title">
-        {{ articleData.title }}
-      </h3>
-      <footer class="blog-article__footer">
-        <time class="blog-article__date">{{ articleData.date }}</time>
-        <a href="#" class="blog-article__btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
-            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813"
-                  stroke="#292F36" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="hide">button</span>
-        </a>
-      </footer>
-    </article>
-</template>
 
 <style scoped lang="scss">
 @import '@/assets/styles/_variables.scss';

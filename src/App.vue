@@ -3,13 +3,16 @@
     <IndexPage v-if="currentPage === 0" :articles="articles" />
     <BlogPage v-else-if="currentPage === 1" :articles="articles" />
     <BlogDetailsPage v-else-if="currentPage === 2" />
+    <ProjectPage v-else-if="currentPage === 3" />
   </div>
 </template>
 
+<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import IndexPage from '@/pages/IndexPage.vue';
 import BlogPage from '@/pages/BlogPage.vue';
 import BlogDetailsPage from '@/pages/BlogDetailsPage.vue';
+import ProjectPage from '@/pages/ProjectPage.vue';
 import articleImg1 from '@/assets/img/blog-photo-1.jpg';
 import articleImg2 from '@/assets/img/blog-photo-2.jpg';
 import articleImg3 from '@/assets/img/blog-photo-3.jpg';
@@ -23,9 +26,10 @@ export default {
     BlogDetailsPage,
     BlogPage,
     IndexPage,
+    ProjectPage,
   },
   data: () => ({
-    currentPage: 0,
+    currentPage: 3,
     articles: [
       {
         title: 'Let’s Get Solution For Building Construction Work',

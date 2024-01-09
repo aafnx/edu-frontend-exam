@@ -1,18 +1,3 @@
-<script>
-import LogoComponent from '@/components/LogoComponent.vue';
-import FaTwitter from '@/components/FaTwitter.vue';
-import FaLinkedin from '@/components/FaLinkedin.vue';
-
-export default {
-  name: 'PageFooter',
-  components: {
-    LogoComponent,
-    FaTwitter,
-    FaLinkedin,
-  },
-};
-</script>
-
 <template>
   <footer class="footer center">
     <div class="footer-logo">
@@ -42,8 +27,23 @@ export default {
       <a href="tel:1234567890" class="footer-contacts__phone">(123) 456 - 7890</a>
     </address>
   </footer>
-
 </template>
+
+<!-- eslint-disable import/no-extraneous-dependencies -->
+<script>
+import LogoComponent from '@/components/LogoComponent.vue';
+import FaTwitter from '@/components/FaTwitter.vue';
+import FaLinkedin from '@/components/FaLinkedin.vue';
+
+export default {
+  name: 'PageFooter',
+  components: {
+    LogoComponent,
+    FaTwitter,
+    FaLinkedin,
+  },
+};
+</script>
 
 <style scoped lang="scss">
 @import "@/assets/styles/variables";

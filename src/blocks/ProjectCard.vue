@@ -1,43 +1,17 @@
-<script>
-export default {
-  name: 'ProjectCard',
-  props: {
-    cardData: {
-      type: Object,
-      required: true,
-    },
-  },
-  computed: {
-    classForCard() {
-      if (this.cardData.index === 0) {
-        return 'project-card__img_border-top-right';
-      }
-      if (this.cardData.index === 1) {
-        return 'project-card__img_border-top-left';
-      }
-      if (this.cardData.index === 2) {
-        return 'project-card__img_border-bottom-right';
-      }
-      if (this.cardData.index === 3) {
-        return 'project-card__img_border-bottom-left';
-      }
-      return '';
-    },
-  },
-};
-</script>
-
+<!-- eslint-disable vuejs-accessibility/anchor-has-content -->
 <template>
-  <article class="project-card">
-    <img :src="cardData.data.img.src" alt="project"
-         class="project-card__img"
-         :class="classForCard"
-    >
+  <article class="project-card" :class="classCardProjectPage">
+    <div class="project-card__img-box">
+      <img :src="cardData.img.src" alt="project"
+          class="project-card__img"
+          :class="classCardIndexPage"
+      >
+    </div>
     <div class="project-card__wrapper">
       <header class="project-card__header">
-        <h3 class="project-card__heading">{{ cardData.data.title }}</h3>
+        <h3 class="project-card__heading">{{ cardData.title }}</h3>
         <p class="project-card__type">
-          {{ cardData.data.type }}
+          {{ cardData.type }}
         </p>
       </header>
       <a href="#" class="project-card__btn">
@@ -46,11 +20,58 @@ export default {
           <path d="M32 44L40 35L32 26" stroke="#292F36" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round"/>
         </svg>
-        <span class="hide">.</span>
       </a>
     </div>
   </article>
 </template>
+
+<!-- eslint-disable import/no-extraneous-dependencies -->
+<script>
+
+export default {
+  name: 'ProjectCard',
+  props: {
+    cardData: {
+      type: Object,
+      required: true,
+    },
+    page: {
+      type: String,
+      default: 'Index',
+    },
+  },
+  computed: {
+    classCardIndexPage() {
+      if (this.page !== 'Index') {
+        return '';
+      }
+      switch (this.cardData.id) {
+        case 1: {
+          return 'project-card__img_border-top-right';
+        }
+        case 2: {
+          return 'project-card__img_border-top-left';
+        }
+        case 3: {
+          return 'project-card__img_border-bottom-right';
+        }
+        case 4: {
+          return 'project-card__img_border-bottom-left';
+        }
+        default: {
+          return '';
+        }
+      }
+    },
+    classCardProjectPage() {
+      if (this.page !== 'Project') {
+        return '';
+      }
+      return 'project-card_project-page';
+    },
+  },
+};
+</script>
 
 <style scoped lang="scss">
 @import '@/assets/styles/variables';
@@ -60,9 +81,29 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  box-sizing: border-box;
+
+  &_project-page {
+    grid-row: span 2;
+
+    &:nth-child(1), &:nth-child(3), &:nth-child(5) {
+      grid-row: span 3;
+      & .project-card__img-box {
+        height: 925px;
+      }
+    }
+  }
+
+  &__img-box {
+      height: 552px;
+  }
 
   &__img {
-    height: 525px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: block;
 
     &_border-top-right {
       border-radius: 0 $project-card-border-radius 0 0;
