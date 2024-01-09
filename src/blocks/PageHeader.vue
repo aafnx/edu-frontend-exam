@@ -3,9 +3,6 @@ import LogoComponent from '@/components/LogoComponent.vue';
 
 export default {
   name: 'PageHeader',
-  props: {
-    changePage: Function,
-  },
   components: {
     LogoComponent,
   },
@@ -14,11 +11,11 @@ export default {
 
 <template>
   <header class="header center">
-    <LogoComponent :changePage="changePage" />
+    <LogoComponent />
     <nav class="menu">
-      <a href="index.html" class="menu__link" @click.prevent="changePage(0)">Home</a>
+      <a href="index.html" class="menu__link">Home</a>
       <a href="#" class="menu__link">Project</a>
-      <a href="blog.html" class="menu__link" @click.prevent="changePage(1)">Blog</a>
+      <a href="blog.html" class="menu__link">Blog</a>
     </nav>
   </header>
 </template>

@@ -9,7 +9,6 @@ import PageFooter from '@/blocks/PageFooter.vue';
 export default {
   name: 'IndexPage',
   props: {
-    changePage: Function,
     articles: {
       type: Array,
       required: true,
@@ -33,13 +32,13 @@ export default {
       <hr class="bg-line">
       <hr class="bg-line">
       <hr class="bg-line">
-      <PageHeader :changePage="changePage"/>
+      <PageHeader />
       <MainPageBanner />
       <ProjectCardList />
       <ExperienceComponent />
       <MainPageBlog :articles="articles" />
     </div>
-    <PageFooter :changePage="changePage"/>
+    <PageFooter />
   </div>
 </template>
 

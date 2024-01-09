@@ -11,7 +11,6 @@ export default {
     PageFooter,
   },
   props: {
-    changePage: Function,
     articles: {
       type: Array,
       required: true,
@@ -27,7 +26,7 @@ export default {
       <hr class="bg-line">
       <hr class="bg-line">
       <hr class="bg-line">
-    <PageHeader :changePage="changePage" />
+    <PageHeader />
 
       <section class="blog-banner">
         <div class="blog-banner__wrapper container">
@@ -69,7 +68,7 @@ export default {
 
       <BlogPageArticles :articles="articles" />
     </div>
-    <PageFooter :changePage="changePage"/>
+    <PageFooter />
   </div>
 </template>
 

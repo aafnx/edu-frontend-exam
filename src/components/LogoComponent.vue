@@ -1,14 +1,11 @@
 <script>
 export default {
   name: 'LogoComponent',
-  props: {
-    changePage: Function,
-  },
 };
 </script>
 
 <template>
-  <a href="index.html" class="logo" @click.prevent="changePage(0)">
+  <a href="index.html" class="logo">
     <img src="../assets/img/logo.svg" alt="logo" class="logo__img">
     <span class="logo__text">Interno</span>
   </a>

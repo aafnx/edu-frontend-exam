@@ -10,16 +10,13 @@ export default {
     FaTwitter,
     FaLinkedin,
   },
-  props: {
-    changePage: Function,
-  },
 };
 </script>
 
 <template>
   <footer class="footer center">
     <div class="footer-logo">
-      <LogoComponent :changePage="changePage"/>
+      <LogoComponent />
       <p class="footer-logo__text">
         It is a long established fact that a reader will be distracted lookings.
       </p>
@@ -30,9 +27,9 @@ export default {
     </div>
     <nav class="footer-nav">
       <h4 class="footer-nav__heading">Pages</h4>
-      <a href="index.html" class="footer-nav__link" @click.prevent="changePage(0)">Home</a>
+      <a href="index.html" class="footer-nav__link">Home</a>
       <a href="#" class="footer-nav__link">Project</a>
-      <a href="blog.html" class="footer-nav__link" @click.prevent="changePage(1)">Blog</a>
+      <a href="blog.html" class="footer-nav__link">Blog</a>
     </nav>
     <div class="footer-services"></div>
     <address class="footer-contacts">
