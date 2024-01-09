@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@400;600&display=swap');
+
+$site-width: 1200px;
+$site-half-width: $site-width / 2;
+
+$font-color-heading: #292F36;
+$font-color-text: #4D5053;
+$accent-color: #CDA274;
+$experience-block-bgc: #F4F0EC;
+$font-family-heading: "DM Serif Display", serif;
+$font-family-text: 'Jost', sans-serif;
+
+$project-card-border-radius: 80px;
+$boundary-position-bg-line: calc(50% - $site-half-width - 1px);
+
+@mixin font($font-family, $font-color) {
+  font: {
+    family: $font-family;
+    weight: 400;
+    style: normal;
+  }
+  color: $font-color;
+}
+
+@mixin go-to-page-btn {
+  & svg circle {
+    transition: fill .3s;
+  }
+  & svg path {
+    transition: stroke .3s;
+  }
+  &:hover svg circle {
+    fill: $font-color-heading;
+  }
+  &:hover svg path {
+    stroke: $accent-color;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $font-family-text;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+}
+
+.bg-line {
+  position: absolute;
+  top: -10px;
+  background: #E6E6E6;
+  border: none;
+  outline: none;
+  min-height: 100%;
+  width: 1px;
+  z-index: -10;
+  box-sizing: border-box;
+
+  &:first-of-type {
+    left: $boundary-position-bg-line;
+  }
+
+  &:nth-child(2) {
+    left: calc($boundary-position-bg-line + 400px);
+  }
+
+  &:nth-child(3) {
+    right: calc($boundary-position-bg-line + 400px);
+  }
+
+  &:last-of-type {
+    right: $boundary-position-bg-line;
+  }
+}
+
+.center {
+  padding-left: calc(50% - $site-half-width);
+  padding-right: calc(50% - $site-half-width);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0 57px;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &__img {
+  }
+
+  &__text {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  &__link {
+    text-decoration: none;
+    color: $font-color-heading;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.top-banner {
+  position: relative;
+  min-height: 758px;
+  border-radius: 22px;
+  background: url("../img/top-banner.jpg") center no-repeat;
+
+  &__wrapper {
+    position: absolute;
+    top: 208px;
+    left: 50px;
+    max-width: 434px;
+  }
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 65px;
+    line-height: 81px;
+    margin: 0;
+  }
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+  }
+
+  &__btn {
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0.36px;
+    padding: 26px 49px;
+    background-color: $font-color-heading;
+    border-radius: 18px;
+    box-shadow: 0 10px 20px 0 rgba(192, 192, 192, 0.35);
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $accent-color;
+    }
+
+    &:hover svg path {
+      stroke: $font-color-heading;
+    }
+  }
+}
+
+.our-project {
+  margin: 96px 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 93px;
+
+  &__header {
+    max-width: 737px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    text-align: center;
+    font-size: 50px;
+    line-height: 62px;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    text-align: center;
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 0;
+  }
+
+  &__grid-box {
+    display: grid;
+    justify-content: center;
+    grid-template: auto / repeat(2, minmax(auto, 548px));
+    column-gap: 104px;
+    row-gap: 56px;
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__img {
+    height: 525px;
+
+    &_border-top-right {
+      border-radius: 0 $project-card-border-radius 0 0;
+    }
+
+    &_border-bottom-right {
+      border-radius: 0 0 $project-card-border-radius 0;
+    }
+
+
+    &_border-top-left {
+      border-radius: $project-card-border-radius 0 0 0;
+    }
+
+    &_border-bottom-left {
+      border-radius: 0 0 0 $project-card-border-radius;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 25px;
+    line-height: 31px;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  &__type {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 0;
+  }
+
+  &__btn {
+    @include go-to-page-btn;
+  }
+}
+
+.our-experience {
+  min-height: 457px;
+  background-color: $experience-block-bgc;
+  margin: 0 0 96px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 76px;
+}
+
+.experience-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-right: 1px solid $accent-color;
+  padding: 0 54px 0 0;
+  height: 130px;
+
+  &:last-child {
+    border-right: none;
+    padding: 0;
+  }
+
+
+  &__number {
+    @include font($font-family-heading, $accent-color);
+    font-size: 85px;
+    letter-spacing: 1.7px;
+    margin: 0;
+  }
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 0;
+  }
+}
+
+.blog {
+
+  &__header {
+    margin: 0 auto 52px;
+    max-width: 811px;
+  }
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    text-align: center;
+    font-size: 50px;
+    line-height: 62px;
+    letter-spacing: 1px;
+    margin: 0 0 12px 0;
+  }
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    text-align: center;
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 0;
+  }
+}
+
+.blog-articles-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.blog-article {
+  &:nth-child(even) {
+    background-color: $experience-block-bgc;
+
+    & .blog-article__btn svg circle {
+      fill: #FFF;
+
+      &:hover {
+        fill: $font-color-heading;
+      }
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 21px;
+  border: 1px solid #E7E7E7;
+  border-radius: 62px;
+  box-shadow: 0 10px 30px 0 rgba(255, 255, 255, 0.25);
+  max-width: 382px;
+  box-sizing: border-box;
+
+  &__top {
+    position: relative;
+    margin: 0 0 15px 0;
+  }
+
+  &__img {
+    border-radius: 45px 45px 0 0;
+    width: 340px;
+    height: 289px;
+  }
+
+  &__tag {
+    @include font($font-family-text, $font-color-text);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+    border-radius: 8px 8px 8px 0;
+    background: #FFF;
+    width: 124px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  &__title {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 25px;
+    line-height: 31px;
+    letter-spacing: 0.5px;
+    max-width: 300px;
+    margin: 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 0;
+  }
+
+  &__date {
+    @include font($font-family-text, $font-color-text);
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+  }
+
+  &__btn {
+    @include go-to-page-btn;
+  }
+}
+
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin: 96px 0 134px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 101px;
+}
+
+.footer-logo {
+  max-width: 393px;
+
+  &__text {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    margin: 18px 0 31px 0;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 55px;
+
+    &-link {
+      color: $font-color-heading;
+      text-align: center;
+      font-size: 18px;
+      line-height: 21px;
+      letter-spacing: 0.99px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 125px;
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 25px;
+    line-height: 31px;
+    margin: 0;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    letter-spacing: 0.22px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.footer-services {
+  width: 120px;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 258px;
+
+  &__heading {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 25px;
+    line-height: 31px;
+    margin: 0;
+  }
+
+  &__address {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    line-height: 33px;
+    letter-spacing: 0.22px;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  &__email {
+    @extend .footer-contacts__address;
+  }
+
+  &__phone {
+    @extend .footer-contacts__email;
+  }
+}
