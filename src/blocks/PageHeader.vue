@@ -31,22 +31,6 @@ export default {
   margin: 50px 0 57px;
 }
 
-//.logo {
-//  text-decoration: none;
-//  display: flex;
-//  gap: 10px;
-//  align-items: center;
-//
-//  &__img {
-//  }
-//
-//  &__text {
-//    @include font($font-family-heading, $font-color-heading);
-//    font-size: 40px;
-//    line-height: 50px;
-//  }
-//}
-
 .menu {
   display: flex;
   align-items: center;

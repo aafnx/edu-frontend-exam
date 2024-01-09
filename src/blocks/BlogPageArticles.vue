@@ -4,7 +4,7 @@
 
     <div class="blog-articles-wrapper mt30">
       <BlogPageArticle
-        v-for="(article, index) in articles" :key="index"
+        v-for="(article, index) in projectArticles" :key="index"
         :article="article"
       />
     </div>
@@ -15,6 +15,7 @@
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+import { mapGetters } from 'vuex';
 import BlogPageArticle from '@/blocks/BlogPageArticle.vue';
 import PagePagination from '@/blocks/PagePagination.vue';
 
@@ -24,16 +25,13 @@ export default {
     BlogPageArticle,
     PagePagination,
   },
-  props: {
-    articles: {
-      type: Array,
-      required: true,
-    },
-  },
   data() {
     return {
       numberOfPages: 3,
     };
+  },
+  computed: {
+    ...mapGetters('articles', ['projectArticles']),
   },
 };
 </script>

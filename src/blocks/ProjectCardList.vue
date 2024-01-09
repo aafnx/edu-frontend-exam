@@ -12,12 +12,9 @@
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+import { mapGetters } from 'vuex';
 import ProjectHeader from '@/blocks/ProjectHeader.vue';
 import ProjectCard from '@/blocks/ProjectCard.vue';
-import img1 from '@/assets/img/card-1.jpg';
-import img2 from '@/assets/img/card-2.jpg';
-import img3 from '@/assets/img/card-3.jpg';
-import img4 from '@/assets/img/card-4.jpg';
 
 export default {
   name: 'ProjectCardList',
@@ -25,42 +22,9 @@ export default {
     ProjectHeader,
     ProjectCard,
   },
-  data: () => ({
-    projectCardsData: [
-      {
-        id: 1,
-        img: {
-          src: img1,
-        },
-        title: 'Modern Kitchan',
-        type: 'Decor / Artchitecture',
-      },
-      {
-        id: 2,
-        img: {
-          src: img2,
-        },
-        title: 'Modern Kitchan',
-        type: 'Decor / Artchitecture',
-      },
-      {
-        id: 3,
-        img: {
-          src: img3,
-        },
-        title: 'Modern Kitchan',
-        type: 'Decor / Artchitecture',
-      },
-      {
-        id: 4,
-        img: {
-          src: img4,
-        },
-        title: 'Modern Kitchan',
-        type: 'Decor / Artchitecture',
-      },
-    ],
-  }),
+  computed: {
+    ...mapGetters('projectCards', ['projectCardsData']),
+  },
 };
 </script>
 

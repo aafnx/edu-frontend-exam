@@ -1,24 +1,21 @@
 <template>
   <div id="app">
-    <IndexPage v-if="currentPage === 0" :articles="articles" />
-    <BlogPage v-else-if="currentPage === 1" :articles="articles" />
+    <IndexPage v-if="currentPage === 0" />
+    <BlogPage v-else-if="currentPage === 1" />
     <BlogDetailsPage v-else-if="currentPage === 2" />
     <ProjectPage v-else-if="currentPage === 3" />
+    <ProjectDetailsPage v-else-if="currentPage === 4" />
   </div>
 </template>
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+import { mapGetters } from 'vuex';
 import IndexPage from '@/pages/IndexPage.vue';
 import BlogPage from '@/pages/BlogPage.vue';
 import BlogDetailsPage from '@/pages/BlogDetailsPage.vue';
 import ProjectPage from '@/pages/ProjectPage.vue';
-import articleImg1 from '@/assets/img/blog-photo-1.jpg';
-import articleImg2 from '@/assets/img/blog-photo-2.jpg';
-import articleImg3 from '@/assets/img/blog-photo-3.jpg';
-import articleImg4 from '@/assets/img/blog-photo-4.jpg';
-import articleImg5 from '@/assets/img/blog-photo-5.jpg';
-import articleImg6 from '@/assets/img/blog-photo-6.jpg';
+import ProjectDetailsPage from '@/pages/ProjectDetailsPage.vue';
 
 export default {
   name: 'App',
@@ -27,66 +24,14 @@ export default {
     BlogPage,
     IndexPage,
     ProjectPage,
+    ProjectDetailsPage,
   },
   data: () => ({
-    currentPage: 3,
-    articles: [
-      {
-        title: 'Let’s Get Solution For Building Construction Work',
-        tag: 'Kitchan Design',
-        img: {
-          src: articleImg1,
-          alt: 'Kitchan design',
-        },
-        date: '26 December,2022',
-      },
-      {
-        title: 'Low Cost Latest Invented Interior Designing Ideas.',
-        tag: 'Living Design',
-        img: {
-          src: articleImg2,
-          alt: 'Living Design',
-        },
-        date: '22 December,2022',
-      },
-      {
-        title: 'Best For Any Office & Business Interior Solution',
-        tag: 'Interior Design',
-        img: {
-          src: articleImg3,
-          alt: 'Interior Design',
-        },
-        date: '25 December,2022',
-      },
-      {
-        title: 'Let’s Get Solution For Building Construction Work',
-        tag: 'Kitchan Design',
-        img: {
-          src: articleImg4,
-          alt: 'Kitchan design',
-        },
-        date: '26 December,2022',
-      },
-      {
-        title: 'Low Cost Latest Invented Interior Designing Ideas.',
-        tag: 'Living Design',
-        img: {
-          src: articleImg5,
-          alt: 'Living Design',
-        },
-        date: '22 December,2022',
-      },
-      {
-        title: 'Best For Any Office & Business Interior Solution',
-        tag: 'Interior Design',
-        img: {
-          src: articleImg6,
-          alt: 'Interior Design',
-        },
-        date: '25 December,2022',
-      },
-    ],
+    currentPage: 4,
   }),
+  computed: {
+    ...mapGetters('articles', ['articles']),
+  },
 };
 </script>
 
@@ -159,6 +104,14 @@ body {
 
 .mtb46 {
   margin: 46px 0;
+}
+
+.mb108 {
+    margin-bottom: 108px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
 }
 
 .flexbox-jcsb {
