@@ -1,5 +1,8 @@
-[Макет](https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?type=design&node-id=101-14&t=hPokjgMtIgcsYlyO-0)
+Продолжаем
+создание [макета](https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?type=design&node-id=209-15&t=VK2zHccBmhGGNIzu-0):
 
-По заданному макету создать вёрстку главной страницы (без использования vue).
+— Реализовать страницу Blog (Домашнее задание 2).
 
-Задание по работе с макетом направлено на подготовку проекта к итоговой аттестации.
+Что мы можем заметить в проекте, что часть "Articles & News" повторяется. Как итог, вам необходимо создать блок
+Articles & News с помощью Vue.js, где данные для вёрстки будут храниться в массиве объектов и выводить на страницу с
+помощью цикла `v-for`.

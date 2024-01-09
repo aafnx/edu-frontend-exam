@@ -9,7 +9,10 @@
     <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="https://kit.fontawesome.com/3d95081fe9.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/3d95081fe9.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script defer src="js/index.js"></script>
+
 </head>
 <body>
 <div class="wrapper">
@@ -25,7 +28,7 @@
         <nav class="menu">
             <a href="index.html" class="menu__link">Home</a>
             <a href="#" class="menu__link">Project</a>
-            <a href="#" class="menu__link">Blog</a>
+            <a href=blog.html class="menu__link">Blog</a>
         </nav>
     </header>
 
@@ -154,62 +157,28 @@
         </div>
     </article>
 
-    <section class="blog center">
+    <section class="blog center" id="app">
         <header class="blog__header">
             <h3 class="blog__heading">Articles & News</h3>
             <p class="blog__text">It is a long established fact that a reader will be distracted by the of readable
                 content of a page when lookings at its layouts the points of using.</p>
         </header>
 
+        <!--Карточки через Vue-->
         <div class="blog-articles-wrapper">
-            <article class="blog-article">
+            <article class="blog-article"
+                     v-for="(article, index) in articles"
+                     :key="index"
+                     v-if="limitDisplayArticles(index, 3)">
                 <div class="blog-article__top">
-                    <img src="img/blog-photo-1.jpg" alt="kitchan design" class="blog-article__img">
-                    <p class="blog-article__tag">Kitchan Design</p>
+                    <img :src="article.img.src" :alt="article.img.alt" class="blog-article__img">
+                    <p class="blog-article__tag"> {{ article.tag }}</p>
                 </div>
                 <h3 class="blog-article__title">
-                    Let’s Get Solution For Building Construction Work
+                    {{ article.title }}
                 </h3>
                 <footer class="blog-article__footer">
-                    <time class="blog-article__date">26 December,2022</time>
-                    <a href="#" class="blog-article__btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2"
-                                  stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </footer>
-            </article>
-            <article class="blog-article">
-                <div class="blog-article__top">
-                    <img src="img/blog-photo-2.jpg" alt="kitchan design" class="blog-article__img">
-                    <p class="blog-article__tag">Living Design</p>
-                </div>
-                <h3 class="blog-article__title">
-                    Low Cost Latest Invented Interior Designing Ideas.
-                </h3>
-                <footer class="blog-article__footer">
-                    <time class="blog-article__date">22 December,2022</time>
-                    <a href="#" class="blog-article__btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
-                            <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
-                            <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2"
-                                  stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </footer>
-            </article>
-            <article class="blog-article">
-                <div class="blog-article__top">
-                    <img src="img/blog-photo-3.jpg" alt="kitchan design" class="blog-article__img">
-                    <p class="blog-article__tag">Interior Design</p>
-                </div>
-                <h3 class="blog-article__title">
-                    Best For Any Office & Business Interior Solution
-                </h3>
-                <footer class="blog-article__footer">
-                    <time class="blog-article__date">25 December,2022</time>
+                    <time class="blog-article__date">{{ article.date }}</time>
                     <a href="#" class="blog-article__btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
                             <circle cx="26" cy="26.267" r="26" fill="#F4F0EC"/>
@@ -243,7 +212,7 @@
         <h4 class="footer-nav__heading">Pages</h4>
         <a href="index.html" class="footer-nav__link">Home</a>
         <a href="#" class="footer-nav__link">Project</a>
-        <a href="#" class="footer-nav__link">Blog</a>
+        <a href="blog.html" class="footer-nav__link">Blog</a>
     </nav>
     <div class="footer-services"></div>
     <address class="footer-contacts">
