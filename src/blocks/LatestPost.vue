@@ -3,18 +3,12 @@
   <section class="latest-post center">
         <h3 class="latest-post__heading">Latest Post</h3>
         <article class="latest-post__article">
-          <img src="@/assets/img/latest-post.jpg" alt="latest post" class="latest-post__img">
+          <img :src="latestPostData.img.src" :alt="latestPostData.img.alt" class="latest-post__img">
           <div class="latest-post__content">
-            <h4 class="latest-post__title">Low Cost Latest Invented Interior Designing Ideas</h4>
-            <p class="latest-post__text">Lorem ipsum dolor sit amet, adipiscing Aliquam eu
-              sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.
-              <br>
-              <br>
-              Lorem Ipsum is not simply random text. It
-              has roots in a piece of classica.
-            </p>
+            <h4 class="latest-post__title">{{ latestPostData.title }}</h4>
+            <p class="latest-post__text">{{ latestPostData.paragraphs[0] }}</p>
             <div class="latest-post__wrapper">
-              <time class="latest-post__date">26 December,2022</time>
+              <time class="latest-post__date">{{ latestPostData.date }}</time>
               <router-link to="/blog-details" class="latest-post__btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53"
                 viewBox="0 0 52 53" fill="none">
@@ -31,8 +25,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'LatestPost',
+  computed: {
+    ...mapGetters('articles', ['blogArticles']),
+    latestPostData() {
+      return this.blogArticles.at(-1);
+    },
+  },
 };
 </script>
 
@@ -62,11 +64,15 @@ export default {
     padding: 22px;
     display: flex;
     gap: 65px;
+    height: 522px;
+    box-sizing: border-box;
   }
 
   &__img {
     border-radius: 50px;
     background: #C4C4C4;
+    max-height: 478px;
+    max-width: 569px;
   }
 
   &__content {
@@ -90,6 +96,20 @@ export default {
     line-height: 33px;
     letter-spacing: 0.22px;
     margin: 22px 0 41px;
+    overflow: hidden;
+    position: relative;
+    max-height: 300px;
+    &::after {
+      content: "";
+      text-align: right;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 1.2em;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white 100%);
+      pointer-events: none;
+    }
   }
 
   &__wrapper {

@@ -9,7 +9,10 @@
     </div>
     <div class="project-card__wrapper">
       <header class="project-card__header">
-        <h3 class="project-card__heading">{{ cardData.title }}</h3>
+        <h3 class="project-card__heading">
+          <router-link to="/project-details" class="project-card__heading-link">
+            {{ cardData.title }}
+          </router-link></h3>
         <p class="project-card__type">
           {{ cardData.type }}
         </p>
@@ -134,6 +137,11 @@ export default {
     line-height: 31px;
     letter-spacing: 0.5px;
     margin: 0;
+  }
+
+  &__heading-link {
+    text-decoration: none;
+    color: inherit;
   }
 
   &__type {

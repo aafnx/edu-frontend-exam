@@ -4,13 +4,9 @@
   </div>
 </template>
 
-<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 export default {
   name: 'App',
-  mounted() {
-    // this.$router.push({ name: 'home' }).catch(() => {});
-  },
 };
 </script>
 
@@ -98,7 +94,7 @@ body {
   justify-content: space-between;
 }
 
-  // for linter error without content in anchor
+// for linter error without content in anchor
 .hide {
   display: none;
   visibility: hidden;

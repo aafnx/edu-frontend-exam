@@ -1,4 +1,3 @@
-<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import PageHeader from '@/blocks/PageHeader.vue';
 import MainPageBanner from '@/blocks/MainPageBanner.vue';
@@ -18,6 +17,9 @@ export default {
     PageFooter,
   },
 };
+// !TODO
+// все ссылки на главной странице являются переходами на соответствующие
+// страницы, например, при нажатии на Название проекта, мы попадаем в описание проекта;
 </script>
 
 <template>
@@ -36,7 +38,3 @@ export default {
     <PageFooter />
   </div>
 </template>
-
-<style scoped>
-
-</style>

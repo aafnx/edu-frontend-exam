@@ -61,7 +61,7 @@ export default {
         tags: ['building'],
       },
       {
-        title: 'Architecture',
+        title: 'Architecture Lorem ipsum.',
         img: {
           src: subArticleImg,
           alt: 'Architecture',
@@ -69,7 +69,8 @@ export default {
         date: '10 July,2023',
         pagination: 'Interior / Home / Architecture',
         paragraphs: [
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eum, id laudantium magni molestias natus odio pariatur perferendis quidem velit! Adipisci aperiam corporis, debitis distinctio eaque eum hic itaque nemo odio officia quo quod ullam velit. A aperiam culpa minus neque nobis quasi ratione sint. Aspernatur dicta est, exercitationem facere fugit id laudantium maiores molestiae molestias neque nihil nulla optio provident saepe similique sint tenetur. A adipisci asperiores dicta eos exercitationem expedita explicabo, fuga ipsa iusto magnam necessitatibus nemo nulla obcaecati odio officiis possimus, praesentium provident qui quia recusandae reiciendis repellat sunt! Atque eveniet, modi! Ad blanditiis ipsam odit quibusdam?',
+          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eum, id laudantium magni molestias natus odio pariatur perferendis quidem velit! Adipisci aperiam corporis, debitis distinctio eaque eum consectetur adipisicing elit. Consequatur eum, id laudantium magni molestias natus odio pariatur perferendis quidem velit! Aspernatur dicta est, exercitationem facere fugit id laudantium maiores molestiae molestias neque nihil nulla optio provident saepe similique sint tenetur.',
+          'A adipisci asperiores dicta eos exercitationem expedita explicabo, fuga ipsa iusto magnam necessitatibus nemo nulla obcaecati odio officiis possimus, praesentium provident qui quia recusandae reiciendis repellat sunt! Atque eveniet, modi! Ad blanditiis ipsam odit quibusdam?',
         ],
         tags: ['architecture'],
       },

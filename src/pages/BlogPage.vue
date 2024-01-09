@@ -1,4 +1,3 @@
-<!-- eslint-disable vuejs-accessibility/anchor-has-content -->
 <template>
   <div>
     <div class="wrapper">
@@ -18,7 +17,6 @@
   </div>
 </template>
 
-<!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
 import PageHeader from '@/blocks/PageHeader.vue';
 import PageFooter from '@/blocks/PageFooter.vue';
@@ -46,6 +44,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-</style>
