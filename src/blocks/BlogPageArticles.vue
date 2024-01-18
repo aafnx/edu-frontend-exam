@@ -95,12 +95,4 @@ export default {
   grid-auto-flow: row dense;
   gap: 30px 27px;
 }
-
-.page-pagination {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  margin: 51px 0 0;
-}
 </style>
