@@ -19,7 +19,7 @@
             :cardData="card"
             :page="pageName"/>
         </section>
-        <PagePagination :numberOfPages="3" />
+        <PagePagination :items="filteredCardsByCategory" :itemsPerPage="itemsPerPage" />
       </main>
     </div>
     <PageFooter />
@@ -54,6 +54,7 @@ export default {
         subtitle: 'Home / Project',
         pageName: 'project',
       },
+      itemsPerPage: 9,
     };
   },
   methods: {

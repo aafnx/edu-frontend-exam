@@ -1,7 +1,12 @@
 <template>
   <nav class="page-pagination">
-    <PaginationItem v-for="page in numberOfPages" :key="page" :pageNumber="page" />
-    <PaginationItem  :isLastItem="true"/>
+    <PaginationItem ref="paginationItems"
+      v-for="page in numberOfPages" :key="page"
+      :pageNumber="page"
+      :isActive="currentPage === page"
+      @changePage="changePage(page)"
+    />
+    <PaginationItem v-if="lastItem?.isNeed" :route="lastItem.route" :isLastItem="true"/>
   </nav>
 </template>
 
@@ -12,8 +17,52 @@ import PaginationItem from '@/components/PaginationItem.vue';
 export default {
   name: 'PagePagination',
   components: { PaginationItem },
+  data() {
+    return {
+      currentPage: 1,
+    };
+  },
   props: {
-    numberOfPages: Number,
+    items: {
+      type: Array,
+      required: true,
+    },
+    itemsPerPage: {
+      type: Number,
+      required: true,
+    },
+    lastItem: {
+      isNeed: Boolean,
+      route: String,
+    },
+  },
+  methods: {
+    changePage(page) {
+      if (page <= 0) this.currentPage = 1;
+      if (page > this.numberOfPages) this.currentPage = this.numberOfPages;
+
+      this.currentPage = page;
+
+      this.$emit('showItems', this.shownItems);
+    },
+  },
+  computed: {
+    numberOfPages() {
+      return Math.ceil(this.items.length / this.itemsPerPage);
+    },
+    maxIndexItems() {
+      return this.currentPage * this.itemsPerPage;
+    },
+    minIndexItems() {
+      return this.maxIndexItems - this.itemsPerPage;
+    },
+    shownItems() {
+      return [...this.items].filter((_, idx) => idx >= this.minIndexItems && idx
+        < this.maxIndexItems);
+    },
+  },
+  mounted() {
+    this.$children[0].$el.dispatchEvent(new Event('click'));
   },
 };
 </script>

@@ -4,12 +4,18 @@
 
     <div class="blog-articles-wrapper mt30">
       <BlogPageArticle
-        v-for="(article, index) in projectArticles" :key="index"
+        v-for="(article) in shownArticles" :key="article.id"
         :article="article"
       />
     </div>
 
-    <PagePagination :numberOfPages="numberOfPages"/>
+    <PagePagination
+      :items="projectArticlesData"
+      :itemsPerPage="itemsPerPage"
+      :lastItem="{isNeed: true, route: '/project'}"
+      @showItems="showItems"
+    />
+
   </section>
 </template>
 
@@ -27,11 +33,24 @@ export default {
   },
   data() {
     return {
-      numberOfPages: 3,
+      itemsPerPage: 6,
+      shownArticles: [],
     };
+  },
+  methods: {
+    showItems(items) {
+      this.shownArticles = items;
+    },
   },
   computed: {
     ...mapGetters('articles', ['projectArticles']),
+    // имитируем дополнительные данные для пагинации
+    reversedArticleData() {
+      return [...this.projectArticles].reverse();
+    },
+    projectArticlesData() {
+      return [...this.projectArticles, ...this.reversedArticleData, ...this.projectArticles];
+    },
   },
 };
 </script>
@@ -75,5 +94,13 @@ export default {
   grid-template: auto / repeat(3, 1fr);
   grid-auto-flow: row dense;
   gap: 30px 27px;
+}
+
+.page-pagination {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 51px 0 0;
 }
 </style>
