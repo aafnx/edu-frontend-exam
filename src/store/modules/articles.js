@@ -17,10 +17,20 @@ export default {
     blogArticles: [
       {
         title: 'Let’s Get Solution for Building Construction Work',
-        img: {
-          src: articleBlogImg1,
-          alt: 'kitchen',
-        },
+        img: [
+          {
+            src: articleBlogImg1,
+            alt: 'kitchen',
+          },
+          {
+            src: articleBlogImg2,
+            alt: 'kitchen',
+          },
+          {
+            src: articleBlogImg3,
+            alt: 'kitchen',
+          },
+        ],
         date: '26 December,2022',
         pagination: 'Interior / Home / Decore',
         paragraphs: ["Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable.", 'Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.'],
@@ -29,10 +39,20 @@ export default {
       },
       {
         title: 'Solution for planning Bedroom',
-        img: {
-          src: articleBlogImg2,
-          alt: 'bedroom',
-        },
+        img: [
+          {
+            src: articleBlogImg2,
+            alt: 'bedroom',
+          },
+          {
+            src: articleBlogImg1,
+            alt: 'kitchen',
+          },
+          {
+            src: articleBlogImg3,
+            alt: 'kitchen',
+          },
+        ],
         date: '01 June,2022',
         pagination: 'Interior / Home / Bedroom',
         paragraphs: [
@@ -47,10 +67,16 @@ export default {
       },
       {
         title: 'Build your home',
-        img: {
-          src: articleBlogImg3,
-          alt: 'build',
-        },
+        img: [
+          {
+            src: articleBlogImg3,
+            alt: 'build',
+          },
+          {
+            src: articleBlogImg1,
+            alt: 'kitchen',
+          },
+        ],
         date: '14 February,2023',
         pagination: 'Interior / Home / Building',
         paragraphs: [
@@ -62,10 +88,16 @@ export default {
       },
       {
         title: 'Architecture Lorem ipsum.',
-        img: {
-          src: subArticleImg,
-          alt: 'Architecture',
-        },
+        img: [
+          {
+            src: subArticleImg,
+            alt: 'Architecture',
+          },
+          {
+            src: articleBlogImg3,
+            alt: 'Architecture',
+          },
+        ],
         date: '10 July,2023',
         pagination: 'Interior / Home / Architecture',
         paragraphs: [

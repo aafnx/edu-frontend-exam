@@ -1,17 +1,7 @@
 <template>
-<section class="section center">
-    <article class="article">
-        <h3 class="header">
-            {{ item.title }}
-        </h3>
-        <p class="text"
-            v-for="(text, index) in item.paragraphs"
-            :key="index">
-            {{ text }}
-        </p>
-    </article>
+<div>
     <div class="img-box">
-        <img class="img" :src="item.img.src" :alt="item.img.alt">
+        <img class="img" :src="img.src" :alt="img.alt">
         <button
             class="zoom-btn"
             @click="showPopUp">
@@ -53,13 +43,13 @@
           </defs>
             </svg>
         </button>
-    </div>
-    <PopUpImage
-      @hidePopUp="hidePopUp"
-      :isShown="isShownPopUp"
-      :img="item.img" />
-</section>
 
+        <PopUpImage
+          @hidePopUp="hidePopUp"
+          :isShown="isShownPopUp"
+          :img="img" />
+        </div>
+</div>
 </template>
 
 <script>
@@ -74,7 +64,7 @@ export default {
     };
   },
   props: {
-    item: {
+    img: {
       type: Object,
       required: true,
     },
@@ -93,31 +83,6 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/styles/_variables.scss';
 @import '@/assets/styles/_mixins.scss';
-
-.section {
-    margin: 200px 0 20px;
-}
-
-.article {
-    max-width: 658px;
-    text-align:justify;
-    margin: 0 auto 100px;
-}
-
-.header {
-    @include font($font-family-heading, $font-color-heading);
-    font-size: 50px;
-    letter-spacing: 1px;
-    line-height: 62px;
-}
-
-.text {
-    @include font($font-family-text, $font-color-text);
-    font-size: 22px;
-    letter-spacing: 0.22px;
-    line-height: 33px;
-    margin: 0 0 20px;
-}
 
 .img-box {
     max-width: 1200px;

@@ -7,7 +7,7 @@
       <hr class="bg-line">
       <PageHeader />
       <BannerPage :bannerData="bannerData" />
-      <ProjectDetailsSlider />
+      <ProjectDetailsSlider :articleData="articleData"/>
     </div>
     <PageFooter />
   </div>
@@ -15,6 +15,7 @@
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+import { mapGetters } from 'vuex';
 import BannerPage from '@/blocks/BannerPage.vue';
 import PageFooter from '@/blocks/PageFooter.vue';
 import PageHeader from '@/blocks/PageHeader.vue';
@@ -36,6 +37,14 @@ export default {
         pageName: 'project details',
       },
     };
+  },
+  computed: {
+    ...mapGetters('articles', ['blogArticles']),
+    articleData() {
+      const length = this.blogArticles.length - 1;
+      const rndIndex = Math.round(Math.random() * length);
+      return this.blogArticles[rndIndex];
+    },
   },
 };
 </script>

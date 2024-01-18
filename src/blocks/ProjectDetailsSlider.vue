@@ -1,6 +1,16 @@
 <template>
-    <div>
-    <ProjectDetailsSliderItem :item="articles[choosenSlide]"/>
+    <section class="section center">
+    <article class="article">
+        <h3 class="header">
+            {{ articleData.title }}
+        </h3>
+        <p class="text"
+            v-for="(text, index) in articleData.paragraphs"
+            :key="index">
+            {{ text }}
+        </p>
+    </article>
+    <ProjectDetailsSliderItem :img ="articleData.img[choosenSlide]"/>
     <div class="slider-pagination mb108">
         <button
             class="slider-pagination__item"
@@ -9,11 +19,10 @@
             :key="index"
             @click="changeSlide(index)"></button>
     </div>
-    </div>
+    </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import ProjectDetailsSliderItem from '@/blocks/ProjectDetailsSliderItem.vue';
 
 export default {
@@ -24,10 +33,13 @@ export default {
       choosenSlide: 0,
     };
   },
+  props: {
+    articleData: Object,
+  },
   methods: {
     changeSlide(index) {
-      if (index >= this.articles.length) {
-        this.choosenSlide = this.articles.length - 1;
+      if (index >= this.articleData.img.length) {
+        this.choosenSlide = this.articleData.img.length - 1;
       }
       if (index < 0) {
         this.choosenSlide = 0;
@@ -39,12 +51,8 @@ export default {
     },
   },
   computed: {
-    ...mapGetters('articles', ['blogArticles']),
     buttonCount() {
-      return this.articles.length;
-    },
-    articles() {
-      return this.blogArticles;
+      return this.articleData.img.length;
     },
   },
 };
@@ -54,10 +62,35 @@ export default {
 @import '@/assets/styles/_variables.scss';
 @import '@/assets/styles/_mixins.scss';
 
+.section {
+    margin: 200px 0 20px;
+}
+
+.article {
+    max-width: 658px;
+    text-align:justify;
+    margin: 0 auto 100px;
+}
+
+.header {
+    @include font($font-family-heading, $font-color-heading);
+    font-size: 50px;
+    letter-spacing: 1px;
+    line-height: 62px;
+}
+
+.text {
+    @include font($font-family-text, $font-color-text);
+    font-size: 22px;
+    letter-spacing: 0.22px;
+    line-height: 33px;
+    margin: 0 0 20px;
+}
 .slider-pagination {
     display: flex;
     justify-content: center;
     gap: 5px;
+    margin-top: 30px;
     &__item {
         cursor: pointer;
         outline: none;

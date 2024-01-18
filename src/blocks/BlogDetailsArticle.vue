@@ -3,7 +3,7 @@
     <h3 class="article__title">
       {{ articleData.title }}
     </h3>
-    <img :src="articleData.img.src" :alt="articleData.img.alt" class="article__img mt21">
+    <img :src="articleData.img[0].src" :alt="articleData.img[0].alt" class="article__img mt21">
     <div class="flexbox-jcsb mtb46">
       <time class="article__date"> {{ articleData.date }}</time>
       <div class="article__pagination">

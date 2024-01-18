@@ -86,6 +86,10 @@ export default {
     box-shadow: 0 10px 20px 0 rgba(192, 192, 192, 0.35);
     transition: all 0.3s;
 
+    & svg path {
+      transition: stroke 0.3s;
+    }
+
     &:hover {
       background-color: $accent-color;
     }

@@ -3,7 +3,11 @@
   <section class="latest-post center">
         <h3 class="latest-post__heading">Latest Post</h3>
         <article class="latest-post__article">
-          <img :src="latestPostData.img.src" :alt="latestPostData.img.alt" class="latest-post__img">
+          <img
+            class="latest-post__img"
+            :src="latestPostData.img[0].src"
+            :alt="latestPostData.img[0].alt"
+          >
           <div class="latest-post__content">
             <h4 class="latest-post__title">{{ latestPostData.title }}</h4>
             <p class="latest-post__text">{{ latestPostData.paragraphs[0] }}</p>
