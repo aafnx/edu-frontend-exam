@@ -1,5 +1,6 @@
 <template>
-  <nav class="page-pagination">
+  <!-- Если только 1 страница для отображения, то пагинация скрывается  -->
+  <nav class="page-pagination" v-show="numberOfPages > 1">
     <PaginationItem ref="paginationItems"
       v-for="page in numberOfPages" :key="page"
       :pageNumber="page"
@@ -40,7 +41,6 @@ export default {
     changePage(page) {
       if (page <= 0) this.currentPage = 1;
       if (page > this.numberOfPages) this.currentPage = this.numberOfPages;
-
       this.currentPage = page;
 
       this.$emit('showItems', this.shownItems);

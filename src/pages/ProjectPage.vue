@@ -15,11 +15,15 @@
 
         <section class="cards">
           <ProjectCard
-            v-for="card in filteredCardsByCategory" :key="card.id"
+            v-for="card in shownItems" :key="card.id"
             :cardData="card"
-            :page="pageName"/>
+            :page="pageName"
+          />
         </section>
-        <PagePagination :items="filteredCardsByCategory" :itemsPerPage="itemsPerPage" />
+        <PagePagination
+          :items="filteredCardsByCategory"
+          :itemsPerPage="itemsPerPage"
+          @showItems="showItems"/>
       </main>
     </div>
     <PageFooter />
@@ -54,13 +58,20 @@ export default {
         subtitle: 'Home / Project',
         pageName: 'project',
       },
-      itemsPerPage: 9,
+      itemsPerPage: 6,
+      shownItems: [],
     };
   },
   methods: {
     ...mapMutations('projectCards', ['CHANGE_PROJECT_ACTIVE_CATEGORY']),
     changeCategory(data) {
       this.CHANGE_PROJECT_ACTIVE_CATEGORY(data);
+      setTimeout(() => {
+        this.$el.querySelector('.page-pagination').firstChild.dispatchEvent(new Event('click'));
+      }, 0);
+    },
+    showItems(items) {
+      this.shownItems = items;
     },
   },
   computed: {
