@@ -6,6 +6,10 @@
           class="project-card__img"
           :class="classCardIndexPage"
       >
+      <LikeComponent class="like"
+        :id="cardData.id"
+        :isLiked="cardData.liked"
+        :mutateLike="mutateLike" />
     </div>
     <div class="project-card__wrapper">
       <header class="project-card__header">
@@ -30,9 +34,11 @@
 
 <!-- eslint-disable import/no-extraneous-dependencies -->
 <script>
+import LikeComponent from '@/components/LikeComponent.vue';
 
 export default {
   name: 'ProjectCard',
+  components: { LikeComponent },
   props: {
     cardData: {
       type: Object,
@@ -42,6 +48,7 @@ export default {
       type: String,
       default: 'Index',
     },
+    mutateLike: Function,
   },
   computed: {
     classCardIndexPage() {
@@ -99,6 +106,10 @@ export default {
 
   &__img-box {
       height: 552px;
+      position: relative;
+      &:hover .like {
+        opacity: 1;
+      }
   }
 
   &__img {
@@ -155,5 +166,9 @@ export default {
   &__btn {
     @include go-to-page-btn;
   }
+}
+.like {
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 </style>

@@ -79,36 +79,42 @@ export default {
             title: 'Minimal bathroom',
             type: 'Decor / Bathrom',
             img: { src: bathroomImg1 },
+            liked: false,
           },
           {
             id: 2,
             title: 'Glass bathroom',
             type: 'Decor / Bathrom',
             img: { src: bathroomImg2 },
+            liked: false,
           },
           {
             id: 3,
             title: 'Wooden bathroom',
             type: 'Decor / Bathrom',
             img: { src: bathroomImg3 },
+            liked: false,
           },
           {
             id: 4,
             title: 'Black bathroom',
             type: 'Decor / Bathrom',
             img: { src: bathroomImg4 },
+            liked: false,
           },
           {
             id: 5,
             title: 'Green bathroom',
             type: 'Decor / Bathrom',
             img: { src: bathroomImg5 },
+            liked: false,
           },
           {
             id: 6,
             title: 'Modern bathroom',
             type: 'Decor / Bathrom',
             img: { src: bathroomImg6 },
+            liked: false,
           },
         ],
       },
@@ -121,48 +127,56 @@ export default {
             title: 'Minimal Bedroom',
             type: 'Decor / Artchitecture',
             img: { src: img1 },
+            liked: false,
           },
           {
             id: 8,
             title: 'Minimal Bedroom',
             type: 'Decor / Artchitecture',
             img: { src: img2 },
+            liked: false,
           },
           {
             id: 9,
             title: 'Classic Minimal Bedroom',
             type: 'Decor / Artchitecture',
             img: { src: img3 },
+            liked: false,
           },
           {
             id: 10,
             title: 'Modern Bedroom',
             type: 'Decor / Artchitecture',
             img: { src: img4 },
+            liked: false,
           },
           {
             id: 11,
             title: 'Minimal Bedroom table',
             type: 'Decor / Artchitecture',
             img: { src: img5 },
+            liked: false,
           },
           {
             id: 12,
             title: 'System Table',
             type: 'Decor / Artchitecture',
             img: { src: img6 },
+            liked: false,
           },
           {
             id: 13,
             title: 'Modern Medroom',
             type: 'Decor / Artchitecture',
             img: { src: img7 },
+            liked: false,
           },
           {
             id: 14,
             title: 'Another Modern Medroom',
             type: 'Decor / Artchitecture',
             img: { src: img8 },
+            liked: false,
           },
         ],
       },
@@ -175,24 +189,28 @@ export default {
             title: 'White Kitchan',
             type: 'Decor / Kitchan',
             img: { src: kitchanImg1 },
+            liked: false,
           },
           {
             id: 16,
             title: 'Black Kitchan',
             type: 'Decor / Kitchan',
             img: { src: kitchanImg2 },
+            liked: false,
           },
           {
             id: 17,
             title: 'Green Kitchan',
             type: 'Decor / Kitchan',
             img: { src: kitchanImg3 },
+            liked: false,
           },
           {
             id: 18,
             title: 'Blue Kitchan',
             type: 'Decor / Kitchan',
             img: { src: kitchanImg4 },
+            liked: false,
           },
         ],
       },
@@ -205,36 +223,42 @@ export default {
             title: 'Art Living Room',
             type: 'Decor / Living Room',
             img: { src: livingAreaImg1 },
+            liked: false,
           },
           {
             id: 20,
             title: 'Black Living Room',
             type: 'Decor / Living Room',
             img: { src: livingAreaImg2 },
+            liked: false,
           },
           {
             id: 21,
             title: 'Orange Living Room',
             type: 'Decor / Living Room',
             img: { src: livingAreaImg3 },
+            liked: false,
           },
           {
             id: 22,
             title: 'Green Living Room',
             type: 'Decor / Living Room',
             img: { src: livingAreaImg4 },
+            liked: false,
           },
           {
             id: 23,
             title: 'Rich Living Room',
             type: 'Decor / Living Room',
             img: { src: livingAreaImg5 },
+            liked: false,
           },
           {
             id: 24,
             title: 'Minimal Living Room',
             type: 'Decor / Living Room',
             img: { src: livingAreaImg6 },
+            liked: false,
           },
         ],
       },
@@ -253,6 +277,15 @@ export default {
         state.projects.forEach((card) => { card.isActive = false; });
         chosenCategory.isActive = true;
       }
+    },
+    TOGGLE_LIKE(state, id) {
+      let projectData;
+      state.projects.forEach(({ data }) => {
+        data.forEach((card) => {
+          if (card.id === id) projectData = card;
+        });
+      });
+      if (projectData) projectData.liked = !projectData.liked;
     },
   },
 };

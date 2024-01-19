@@ -18,6 +18,7 @@
             v-for="card in shownItems" :key="card.id"
             :cardData="card"
             :page="pageName"
+            :mutateLike="mutateLike"
           />
         </section>
         <PagePagination
@@ -63,7 +64,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations('projectCards', ['CHANGE_PROJECT_ACTIVE_CATEGORY']),
+    ...mapMutations('projectCards', ['CHANGE_PROJECT_ACTIVE_CATEGORY', 'TOGGLE_LIKE']),
     changeCategory(data) {
       this.CHANGE_PROJECT_ACTIVE_CATEGORY(data);
       setTimeout(() => {
@@ -72,6 +73,9 @@ export default {
     },
     showItems(items) {
       this.shownItems = items;
+    },
+    mutateLike(id) {
+      this.TOGGLE_LIKE(id);
     },
   },
   computed: {
