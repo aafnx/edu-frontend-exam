@@ -28,7 +28,7 @@ export default {
       <hr class="bg-line">
       <PageHeader />
       <MainPageBanner />
-      <ProjectCardList />
+      <ProjectCardList :enableLikes="false" />
       <ExperienceComponent />
       <MainPageBlog />
     </div>

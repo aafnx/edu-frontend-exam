@@ -6,7 +6,8 @@
           class="project-card__img"
           :class="classCardIndexPage"
       >
-      <LikeComponent class="like"
+      <LikeComponent v-if="enableLikes"
+        class="like"
         :id="cardData.id"
         :isLiked="cardData.liked"
         :mutateLike="mutateLike" />
@@ -48,6 +49,7 @@ export default {
       type: String,
       default: 'Index',
     },
+    enableLikes: Boolean,
     mutateLike: Function,
   },
   computed: {

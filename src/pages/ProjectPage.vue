@@ -18,6 +18,7 @@
             v-for="card in shownItems" :key="card.id"
             :cardData="card"
             :page="pageName"
+            :enableLikes="true"
             :mutateLike="mutateLike"
           />
         </section>

@@ -5,6 +5,7 @@
       <ProjectCard
         v-for="card in projectCardsData" :key="card.id"
         :cardData="card"
+        :enableLikes="enableLikes"
       />
     </section>
   </div>
@@ -21,6 +22,9 @@ export default {
   components: {
     ProjectHeader,
     ProjectCard,
+  },
+  props: {
+    enableLikes: Boolean,
   },
   computed: {
     ...mapGetters('projectCards', ['projectCardsData']),
