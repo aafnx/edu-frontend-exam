@@ -11,6 +11,7 @@ import NotFound from '@/pages/NotFound.vue';
 Vue.use(Router);
 
 export default new Router({
+  base: '/edu-frontend-exam/',
   mode: 'history',
   routes: [
     {
